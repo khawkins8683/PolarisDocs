@@ -1,0 +1,12 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+#polarisHeader{
+    width: 100%;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    margin-left: 25px;
+}

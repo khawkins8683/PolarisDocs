@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  JonesPSF - Analysis`
+ </title>
+ <link href="HTMLFiles/JonesPSF.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<table class='AnchorBarGrid'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span class="PacletNameCellInline">ANALYSIS` SYMBOL</span></td>
+  <td style='text-align: center;'><span class="AnchorBarInline"><span style='line-height: 1.4;'><span><img src="HTMLFiles/JonesPSF_1.gif" alt="JonesPSF_1.gif" width="71" height="29" style="vertical-align:middle" /></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='line-height: 1.4;'><span><img src="HTMLFiles/JonesPSF_2.gif" alt="JonesPSF_2.gif" width="45" height="29" style="vertical-align:middle" /></span></span></span></td>
+ </tr>
+</table>
+
+<p class="ObjectName">
+ JonesPSF
+</p>
+
+
+
+<table class='Usage'>
+ <tr style='vertical-align: baseline;'>
+  <td ><span></span></td>
+  <td ><span><span class="InlineFormulaInline"><span><img src="HTMLFiles/JonesPSF_3.gif" alt="JonesPSF_3.gif" width="92" height="14" style="vertical-align:middle" /></span></span>&#8232;JonesPSF[jonesPupil_, opts___] Get the polarized point spread matrix for a Jones Pupil. The polarized point spread function is a 2 by 2 matrix function.<br />Inputs:<br />&nbsp;&nbsp;&nbsp;&nbsp;jonesPupil - {JonesMatrices,spacing, center,axes, &lambda;} the Jones Pupil data structure. <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JonesMatrices - {n, m, 2, 2} dimensional array, where {n, m} is the diemensionality of the original ray grid<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spacing - average grid spacing of the JonesMatrices in [mm].<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center - the center location of the Jones Pupil in global coordinates {x, y, z} in [mm].<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axes - the direction of the wavefront normal at the center location.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lambda; - the wavelength of the Jones Pupil in [&mu;m].<br /><br />Outputs:<br />&nbsp;&nbsp;&nbsp;&nbsp;psfObject - {PSF, gridSpacing, rPSFCenter, opticAxis , &lambda;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PSF - {n*ratio, m*ratio, 2, 2} dimensional array, where {n, m} is the diemensionality of the original ray grid, and ratio is the padding of the Jones Pupil<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spacing - average grid spacing of the PSF function in the PSF plane.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center - the center location of the PSF function in global coordinates {x, y, z} in [mm].<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axes - the direction of the wavefront normal at the center location.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lambda; - the wavelength in [&mu;m].<br /></span></td>
+ </tr>
+</table>
+
+<p class="NotesSection">
+ <span><span><img src="HTMLFiles/JonesPSF_4.gif" alt="JonesPSF_4.gif" width="148" height="36" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="Notes">
+ Custom Options
+</p>
+
+
+
+<table class='X3ColumnTableMod'>
+ <tr style='vertical-align: baseline;'>
+  <td ><span class="TableRowIconInline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td ><span>Opts`FTRatio</span></td>
+  <td ><span>2</span></td>
+  <td ><span>A positive integer used to set the 0 padding of the pupil</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td ><span class="TableRowIconInline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td><span>Opts`R</span></td>
+  <td ><span>20 [mm]</span></td>
+  <td ><span>Distance from image plane to exit pupil.&nbsp;&nbsp;Used when calculating PSF spacing.</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span class="TableRowIconInline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td style='text-align: center;'><span>Opts`PSFType</span></td>
+  <td style='text-align: center;'><span>Amplitude</span></td>
+  <td style='text-align: center;'><span class="TableTextInline">The units of the retured function<br />&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Amplitude&rdquo; =&gt; units of electric field<br />&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;Irradiance&rdquo; =&gt; units of flux</span></td>
+ </tr>
+</table>
+
+<p class="PrimaryExamplesSection">
+ <a id="PrimaryExamplesSection"></a>
+ <span><img src="HTMLFiles/JonesPSF_5.gif" alt="JonesPSF_5.gif" width="72" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="ExampleSection">
+ Basic Examples&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Use the ExampleText style to write cells like this one.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPSF_6.gif" alt="JonesPSF_6.gif" width="593" height="47" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ Now plot the polarized PSF function.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPSF_7.gif" alt="JonesPSF_7.gif" width="302" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPSF_8.gif" alt="JonesPSF_8.gif" width="500" height="500" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/JonesPSF_9.gif" alt="JonesPSF_9.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ Options&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleSubsection">
+ FTRatio&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ This option will pad the Jones Pupil before calculating the PSF function.&nbsp;&nbsp;The more padding the more points will be in the returned psf grid.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPSF_10.gif" alt="JonesPSF_10.gif" width="652" height="95" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPSF_11.gif" alt="JonesPSF_11.gif" width="1536" height="502" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/JonesPSF_12.gif" alt="JonesPSF_12.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="NotesSection">
+ <span><span><img src="HTMLFiles/JonesPSF_13.gif" alt="JonesPSF_13.gif" width="69" height="36" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="SeeAlso">
+ <span class="InlineFormulaInline"><span><img src="HTMLFiles/JonesPSF_14.gif" alt="JonesPSF_14.gif" width="126" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/JonesPSF_15.gif" alt="JonesPSF_15.gif" width="60" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/JonesPSF_16.gif" alt="JonesPSF_16.gif" width="59" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/JonesPSF_17.gif" alt="JonesPSF_17.gif" width="66" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> 
+</p>
+
+
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>

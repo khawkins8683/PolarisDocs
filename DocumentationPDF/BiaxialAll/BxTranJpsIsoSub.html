@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  BxTranJpsIsoSub - BiaxialAll`
+ </title>
+ <link href="HTMLFiles/BxTranJpsIsoSub.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<table class='AnchorBarGrid'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span class="PacletNameCellInline">BIAXIALALL` SYMBOL</span></td>
+  <td style='text-align: center;'><span class="AnchorBarInline"><span style='line-height: 1.4;'><span><img src="HTMLFiles/BxTranJpsIsoSub_1.gif" alt="BxTranJpsIsoSub_1.gif" width="71" height="29" style="vertical-align:middle" /></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='line-height: 1.4;'><span><img src="HTMLFiles/BxTranJpsIsoSub_2.gif" alt="BxTranJpsIsoSub_2.gif" width="45" height="29" style="vertical-align:middle" /></span></span></span></td>
+ </tr>
+</table>
+
+<p class="ObjectName">
+ BxTranJpsIsoSub
+</p>
+
+
+
+<table class='Usage'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span><span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_3.gif" alt="BxTranJpsIsoSub_3.gif" width="141" height="14" style="vertical-align:middle" /></span></span>&#8232;BxTranJpsIsoSub[theta,phi,dieltensVec,einc,esub,thickVec,lambda,IsotropicVec] calculates the Jones matrix for transmission from a multi-layer stack of biaxial material at incident and azimutal angles, theta and phi.<br />The output is the transmission Jones matrix in local coordinates with light traveling in the negative z direction<br />for isotropic incident and susbtrate medias<br />The input parameters are of the form:<br />&nbsp;&nbsp;theta is the incident angle in radians, phi is the azimuthal angle in radians, lambda is the wavelength (in the same units as the thicknesses)<br />The multilayer is described by an array of dielectric tensors of the form:<br />&nbsp;&nbsp;dieltensVec={dieltens1,dieltens2,dieltens3,...}<br />&nbsp;&nbsp;where each element of the array is a 3x3 dielectric tensor or &epsilon;=n^2 for isotropic layers. Note that the FIRST tensor in the array is the material CLOSEST TO THE SUBSTRATE<br /><br />&nbsp;&nbsp;IsotropicVec is an array with values of 1 or 0 in each element that says whether or not each layer in the stack is isotropic or not.&nbsp;&nbsp;If the dielectric tensor at a given layer is isotropic (diagonal with all three values equal) then the value of the corresponding element in IsotropicVec should be set to 1, otherwise it is set to 0<br /><br />The layer thicknesses are described by the array of thickness values of the form:<br />&nbsp;&nbsp;thickVec={thick1,thick2,thick3....} or use thickVec={0} for a calculation of a bulk material (in the same units as the wavelength)<br />&nbsp;&nbsp;The variable einc is the permitivity (complex index squared) of the incident material (incident material assumed to be isotropic) <br />&nbsp;&nbsp;The variable esub is the permitivity (complex index squared) of the substrate material (substrate material assumed to be isotropic) <br />Note, the coordinate rotation {{1,0},{0,-1}} has been applied to the reflection Jones matrix<br /><br />The output parameters are of the form:<br />transJps = transmission Jones matrix in local ps coordinates</span></td>
+ </tr>
+</table>
+
+<p class="NotesSection">
+ <span><span><img src="HTMLFiles/BxTranJpsIsoSub_4.gif" alt="BxTranJpsIsoSub_4.gif" width="157" height="36" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="Notes">
+ Note about the function goes here.
+</p>
+
+
+
+<p class="Notes">
+ Another Note about the function goes here.
+</p>
+
+
+
+<p class="PrimaryExamplesSection">
+ <a id="PrimaryExamplesSection"></a>
+ <span><img src="HTMLFiles/BxTranJpsIsoSub_5.gif" alt="BxTranJpsIsoSub_5.gif" width="72" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="ExampleSection">
+ Basic Examples&nbsp;&nbsp;<span class="ExampleCountInline">(#)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Use the ExampleText style to write cells like this one.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/BxTranJpsIsoSub_6.gif" alt="BxTranJpsIsoSub_6.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ <img src="HTMLFiles/BxTranJpsIsoSub_7.gif" alt="BxTranJpsIsoSub_7.gif" width="59" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ Use the ExampleText style to write cells like this one.
+</p>
+
+
+
+<p class="PrimaryExamplesSection">
+ <span><img src="HTMLFiles/BxTranJpsIsoSub_8.gif" alt="BxTranJpsIsoSub_8.gif" width="67" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="SeeAlso">
+ <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_9.gif" alt="BxTranJpsIsoSub_9.gif" width="79" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_10.gif" alt="BxTranJpsIsoSub_10.gif" width="96" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_11.gif" alt="BxTranJpsIsoSub_11.gif" width="104" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_12.gif" alt="BxTranJpsIsoSub_12.gif" width="46" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_13.gif" alt="BxTranJpsIsoSub_13.gif" width="59" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_14.gif" alt="BxTranJpsIsoSub_14.gif" width="39" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_15.gif" alt="BxTranJpsIsoSub_15.gif" width="58" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_16.gif" alt="BxTranJpsIsoSub_16.gif" width="107" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_17.gif" alt="BxTranJpsIsoSub_17.gif" width="102" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_18.gif" alt="BxTranJpsIsoSub_18.gif" width="179" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_19.gif" alt="BxTranJpsIsoSub_19.gif" width="84" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_20.gif" alt="BxTranJpsIsoSub_20.gif" width="37" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_21.gif" alt="BxTranJpsIsoSub_21.gif" width="61" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_22.gif" alt="BxTranJpsIsoSub_22.gif" width="95" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_23.gif" alt="BxTranJpsIsoSub_23.gif" width="86" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_24.gif" alt="BxTranJpsIsoSub_24.gif" width="119" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_25.gif" alt="BxTranJpsIsoSub_25.gif" width="94" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_26.gif" alt="BxTranJpsIsoSub_26.gif" width="84" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_27.gif" alt="BxTranJpsIsoSub_27.gif" width="33" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_28.gif" alt="BxTranJpsIsoSub_28.gif" width="72" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_29.gif" alt="BxTranJpsIsoSub_29.gif" width="83" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_30.gif" alt="BxTranJpsIsoSub_30.gif" width="137" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_31.gif" alt="BxTranJpsIsoSub_31.gif" width="118" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_32.gif" alt="BxTranJpsIsoSub_32.gif" width="138" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_33.gif" alt="BxTranJpsIsoSub_33.gif" width="33" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_34.gif" alt="BxTranJpsIsoSub_34.gif" width="51" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_35.gif" alt="BxTranJpsIsoSub_35.gif" width="25" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_36.gif" alt="BxTranJpsIsoSub_36.gif" width="166" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_37.gif" alt="BxTranJpsIsoSub_37.gif" width="137" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_38.gif" alt="BxTranJpsIsoSub_38.gif" width="137" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_39.gif" alt="BxTranJpsIsoSub_39.gif" width="118" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_40.gif" alt="BxTranJpsIsoSub_40.gif" width="138" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_41.gif" alt="BxTranJpsIsoSub_41.gif" width="101" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_42.gif" alt="BxTranJpsIsoSub_42.gif" width="34" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/BxTranJpsIsoSub_43.gif" alt="BxTranJpsIsoSub_43.gif" width="36" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> 
+</p>
+
+
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>

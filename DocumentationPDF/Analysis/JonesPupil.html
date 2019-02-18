@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  JonesPupil - Analysis`
+ </title>
+ <link href="HTMLFiles/JonesPupil.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<table class='AnchorBarGrid'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span class="PacletNameCellInline">ANALYSIS` SYMBOL</span></td>
+  <td style='text-align: center;'><span class="AnchorBarInline"><span style='line-height: 1.4;'><span><img src="HTMLFiles/JonesPupil_1.gif" alt="JonesPupil_1.gif" width="71" height="29" style="vertical-align:middle" /></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='line-height: 1.4;'><span><img src="HTMLFiles/JonesPupil_2.gif" alt="JonesPupil_2.gif" width="45" height="29" style="vertical-align:middle" /></span></span></span></td>
+ </tr>
+</table>
+
+<p class="ObjectName">
+ JonesPupil
+</p>
+
+
+
+<table class='Usage'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span><span class="InlineFormulaInline"><span><img src="HTMLFiles/JonesPupil_3.gif" alt="JonesPupil_3.gif" width="106" height="14" style="vertical-align:middle" /></span></span>&#8232;JonesImage[input_ , opts___] is intended for the generation of Jones pupil maps.&nbsp;&nbsp;<br />The function is not restricted to generating a Jones Matrix grids at pupil locations. <br />Mode label descriptions are used to separate multiple wavefronts.<br />There are three inputs to the function<br />---------------------------------<br />JonesPupil[{rayData, opticalSystem, pupilRadius}, opts___ ]<br />INPUT 1:&nbsp;&nbsp;Create a Jones Pupil from an image location.<br />This input should be used when there is a well defined image location in the optical system and ray data.&nbsp;&nbsp;<br />The Jones Pupil will be created at at the exit pupil location.<br /> <br /> input = {rayData, opticalSystem, pupilRadius}<br />&nbsp;&nbsp;&nbsp;&nbsp;rayData - output from a polarization ray trace (the TraceRays[] function). A {n,29} array of ray paths.<br />&nbsp;&nbsp;&nbsp;&nbsp;opticalSystem - {n,11} dimensional array of the optical surfaces used to create the rayData.<br />&nbsp;&nbsp;&nbsp;&nbsp;pupilRadius - distance from the imaging surface to the exit pupil location.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*with negative radius being to the left of the image surface<br />--------------------------------<br />JonesPupil[{rayData, opticalSystem}, opts___ ]<br />INPUT 2: Create a Jones Pupil from a surface in the optical system.<br /> <br /> input = {rayData, opticalSystem}<br />&nbsp;&nbsp;&nbsp;&nbsp;rayData - output from a polarization ray trace (the TraceRays[] function). A {n,29} array of ray paths.<br />&nbsp;&nbsp;&nbsp;&nbsp;opticalSystem - {n,11} dimensional array of the optical surfaces used to create the rayData.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*the option Opts`SurfaceID can be used to identify the optical surface ID to create the jones pupil.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the default surface is the last surface in the optical system <br />--------------------------------<br />JonesPupil[{rayData, selected}, opts___ ]<br />INPUT 3: Create a Jones Pupil from a ray data.&nbsp;&nbsp;The ray data must a collection of ray paths with the same ray`surfID values.<br /> <br /> input = {rayData, selected}<br />&nbsp;&nbsp;&nbsp;&nbsp;rayData- output from a polarization ray trace (the TraceRays[] function).<br />&nbsp;&nbsp;&nbsp;&nbsp;selected - A {n,29} array of ray paths.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*all rays must be at the same surface.<br />--------------------------------<br />OUTPUT: {jonesPupil, localXPupil, localYPupil}<br />&nbsp;&nbsp;&nbsp;&nbsp;jonesPupil - {JonesMatrices,spacing, center,axes, &lambda;} the Jones Pupil data structure. <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JonesMatrices - {n, m, 2, 2} dimensional array, where {n, m} is the diemensionality of the original ray grid<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spacing - average grid spacing of the JonesMatrices in [mm].<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center - the center location of the Jones Pupil in global coordinates {x, y, z} in [mm].<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axes - the direction of the wavefront normal at the center location.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lambda; - the wavelength of the Jones Pupil in [&mu;m].<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;localXBasis - an array of local x vectors with dimensions {n,m,3}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*this is the basis used to convert the PRT matricies into a Jones Matrix<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;localYBasis - an array of local y vectors with dimensions {n,m,3}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*this is the basis used to convert the PRT matricies into a Jones Matrix<br /></span></td>
+ </tr>
+</table>
+
+<p class="NotesSection">
+ <span><span><img src="HTMLFiles/JonesPupil_4.gif" alt="JonesPupil_4.gif" width="157" height="36" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="PrimaryExamplesSection">
+ <a id="PrimaryExamplesSection"></a>
+ <span><img src="HTMLFiles/JonesPupil_5.gif" alt="JonesPupil_5.gif" width="63" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="Notes">
+ Custom Options
+</p>
+
+
+
+<table class='X3ColumnTableMod'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span class="TableRowIconInline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td style='text-align: left;'><span>Opts`SurfaceID</span></td>
+  <td><span>-1</span></td>
+  <td><span>A positive integer, the surface ID value of the pupil surface </span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span class="TableRowIconInline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td style='text-align: left;'><span>Opts`InitialGridDimensions</span></td>
+  <td><span>Rectangular</span></td>
+  <td><span>The grid type of the input rays, either Rectangular orPolar.</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span class="TableRowIconInline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td style='text-align: left;'><span>Opts`CoordinateSystem</span></td>
+  <td><span>DoublePole</span></td>
+  <td><span>The coordiantes system for the global to local conversion: DoublePole or Dipole </span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span class="TableRowIconInline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td style='text-align: left;'><span>Opts`CoordinateAxis</span></td>
+  <td><span>Automatic</span></td>
+  <td><span>The direction of the CoordinateSystem pole axis in global coordinates {x,y,z}</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span class="TableRowIconInline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td style='text-align: left;'><span>Opts`XLocal</span></td>
+  <td><span>Full</span></td>
+  <td><span class="TableTextInline">The x-axis direction to use for the global to local conversion<br />&nbsp;&nbsp;&nbsp;* only used for &ldquo;DoublePole&rdquo; coordinate system</span></td>
+ </tr>
+</table>
+
+<p class="PrimaryExamplesSection">
+ <span><img src="HTMLFiles/JonesPupil_6.gif" alt="JonesPupil_6.gif" width="72" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="Text">
+ <img src="HTMLFiles/JonesPupil_7.gif" alt="Graphics:None" width="397" height="222" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ The examples will show three different ways the Jones pupil of the above system can be calculated.
+</p>
+
+
+
+<p class="ExampleSection">
+ Input 1&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ This example will create a Jones Pupil from the exit pupil of the optical system.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPupil_8.gif" alt="JonesPupil_8.gif" width="670" height="207" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPupil_9.gif" alt="JonesPupil_9.gif" width="78" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPupil_10.gif" alt="JonesPupil_10.gif" width="67" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ Now the Jones Pupil will be calculated.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPupil_11.gif" alt="JonesPupil_11.gif" width="613" height="63" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ The local basis can be plotted with ListVectorPlot.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPupil_12.gif" alt="JonesPupil_12.gif" width="567" height="127" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPupil_13.gif" alt="JonesPupil_13.gif" width="239" height="240" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ And the Pupil can be plotted with JonesPlot.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPupil_14.gif" alt="JonesPupil_14.gif" width="242" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPupil_15.gif" alt="JonesPupil_15.gif" width="500" height="500" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPupil_16.gif" alt="JonesPupil_16.gif" width="4" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/JonesPupil_17.gif" alt="JonesPupil_17.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ Input 2&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ This example will plot the Jones Grid at the surface 2 location. Unlike the first example, this pupil will only contain surface effects for the first 2 surfaces
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPupil_18.gif" alt="JonesPupil_18.gif" width="670" height="191" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPupil_19.gif" alt="JonesPupil_19.gif" width="78" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPupil_20.gif" alt="JonesPupil_20.gif" width="67" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ Now the Jones Pupil will be calculated at surface 2. This is the effect of the primary mirror
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPupil_21.gif" alt="JonesPupil_21.gif" width="584" height="95" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ The local basis can be plotted with ListVectorPlot.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPupil_22.gif" alt="JonesPupil_22.gif" width="567" height="127" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPupil_23.gif" alt="JonesPupil_23.gif" width="239" height="240" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ And the Pupil can be plotted with JonesPlot.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPupil_24.gif" alt="JonesPupil_24.gif" width="242" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPupil_25.gif" alt="JonesPupil_25.gif" width="500" height="500" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/JonesPupil_26.gif" alt="JonesPupil_26.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ Input 3&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ This example will plot the Jones Grid at the surface 1 location. Unlike the first example, and second example, rays will be manually selected
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPupil_27.gif" alt="JonesPupil_27.gif" width="670" height="191" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPupil_28.gif" alt="JonesPupil_28.gif" width="78" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPupil_29.gif" alt="JonesPupil_29.gif" width="67" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ Now the Jones Pupil will be calculated at surface 3.&nbsp;&nbsp;This is the combined effect of the secondary mirror and primary mirror.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPupil_30.gif" alt="JonesPupil_30.gif" width="148" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPupil_31.gif" alt="JonesPupil_31.gif" width="630" height="95" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPupil_32.gif" alt="JonesPupil_32.gif" width="60" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/JonesPupil_33.gif" alt="JonesPupil_33.gif" width="116" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ The local basis can be plotted with ListVectorPlot.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPupil_34.gif" alt="JonesPupil_34.gif" width="567" height="127" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPupil_35.gif" alt="JonesPupil_35.gif" width="239" height="240" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ And the Pupil can be plotted with JonesPlot.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPupil_36.gif" alt="JonesPupil_36.gif" width="242" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPupil_37.gif" alt="JonesPupil_37.gif" width="500" height="500" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/JonesPupil_38.gif" alt="JonesPupil_38.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="NotesSection">
+ <span><span><img src="HTMLFiles/JonesPupil_39.gif" alt="JonesPupil_39.gif" width="69" height="36" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="SeeAlso">
+ <span class="InlineFormulaInline"><span><img src="HTMLFiles/JonesPupil_40.gif" alt="JonesPupil_40.gif" width="126" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/JonesPupil_41.gif" alt="JonesPupil_41.gif" width="60" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/JonesPupil_42.gif" alt="JonesPupil_42.gif" width="59" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/JonesPupil_43.gif" alt="JonesPupil_43.gif" width="66" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> 
+</p>
+
+
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  JonesPlot - Analysis`
+ </title>
+ <link href="HTMLFiles/JonesPlot.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<table class='AnchorBarGrid'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span class="PacletNameCellInline">ANALYSIS` SYMBOL</span></td>
+  <td style='text-align: center;'><span class="AnchorBarInline"><span style='line-height: 1.4;'><span><img src="HTMLFiles/JonesPlot_1.gif" alt="JonesPlot_1.gif" width="71" height="29" style="vertical-align:middle" /></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='line-height: 1.4;'><span><img src="HTMLFiles/JonesPlot_2.gif" alt="JonesPlot_2.gif" width="45" height="29" style="vertical-align:middle" /></span></span></span></td>
+ </tr>
+</table>
+
+<p class="ObjectName">
+ JonesPlot
+</p>
+
+
+
+<table class='Usage'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span><span class="InlineFormulaInline"><span><img src="HTMLFiles/JonesPlot_3.gif" alt="JonesPlot_3.gif" width="99" height="14" style="vertical-align:middle" /></span></span>&#8232;JonesPlot[jonesPupil_,func_,opts___] Plot the 2 by 2 Jones pupil object<br />Inputs:<br />&nbsp;&nbsp;&nbsp;&nbsp;jonesPupil - {JonesMatrices,spacing, center,axes, &lambda;} the Jones Pupil data structure. <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JonesMatrices - {n, m, 2, 2} dimensional array, where {n, m} is the diemensionality of the original ray grid<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spacing - average grid spacing of the JonesMatrices in [mm].<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center - the center location of the Jones Pupil in global coordinates {x, y, z} in [mm].<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axes - the direction of the wavefront normal at the center location.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lambda; - the wavelength of the Jones Pupil in [&mu;m].<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;func- function to operate on a complex jones element i.e Re, Im Abs or Arg, (Arg[#]/(2 &pi;)&amp;)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*The function must take a complex number and return a real number<br /><br />Outputs: Graphics grid of 2D Plot Objects<br />&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+ </tr>
+</table>
+
+<p class="NotesSection">
+ <span><span><img src="HTMLFiles/JonesPlot_4.gif" alt="JonesPlot_4.gif" width="157" height="36" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="PrimaryExamplesSection">
+ <a id="PrimaryExamplesSection"></a>
+ <span><img src="HTMLFiles/JonesPlot_5.gif" alt="JonesPlot_5.gif" width="161" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="Notes">
+ The parameter function
+</p>
+
+
+
+<table class='X3ColumnTableMod'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span class="TableRowIconInline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td style='text-align: center;'><span>Input</span></td>
+  <td style='text-align: center;'><span>Complex Number</span></td>
+  <td style='text-align: center;'><span>A&nbsp;&nbsp;complex element of the matrix&nbsp;&nbsp;{{Ja,Jb},{Jc,Jd}}, that is being plotted</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span class="TableRowIconInline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td style='text-align: center;'><span>OutPut</span></td>
+  <td style='text-align: center;'><span>Real Number</span></td>
+  <td style='text-align: center;'><span class="TableTextInline">Must return a real number for any input complex number</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span class="TableRowIconInline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td style='text-align: center;'><span>Type</span></td>
+  <td style='text-align: center;'><span>RefLink[<span>Function</span>,paclet:ref/Function]</span></td>
+  <td style='text-align: center;'><span class="TableTextInline">A pure function, a custome function, or a mathematica function can be used</span></td>
+ </tr>
+</table>
+
+<p class="Notes">
+ Plot Options
+</p>
+
+
+
+<table class='X2ColumnTableMod'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span class="TableRowIconInline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td style='text-align: center;'><span>Any options from the PlotFunc can be used</span></td>
+  <td style='text-align: center;'><span>RefLink[<span>ListDensityPlot</span>,paclet:ref/ListDensityPlot]<span>&nbsp;<span class="InlineSeparatorInline"> </span></span><span class="InlineSeparatorInline">&#8226;</span>RefLink[<span>ListPlot3D</span>,paclet:ref/ListPlot3D]&nbsp;<span class="InlineSeparatorInline">&#8226;</span>RefLink[<span>ArrayPlot</span>,paclet:ref/ArrayPlot]<span>&nbsp;<span class="InlineSeparatorInline"> </span></span><span class="InlineSeparatorInline">&#8226;</span><span><span class="InlineSeparatorInline"> </span> </span>RefLink[<span>ListContourPlot</span>,paclet:ref/ListContourPlot]&nbsp;&nbsp;<span class="InlineSeparatorInline">&#8226;</span><span class="InlineSeparatorInline"> </span>RefLink[<span>ListPointPlot3D</span>,paclet:ref/ListPointPlot3D]</span></td>
+ </tr>
+</table>
+
+<p class="Notes">
+ Custom Functions
+</p>
+
+
+
+<table class='X3ColumnTableMod'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span class="TableRowIconInline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td style='text-align: left;'><span>Opts`Zoom</span></td>
+  <td><span>0</span></td>
+  <td><span>The central number of pixels to plot</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span class="TableRowIconInline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td style='text-align: left;'><span>Opts`GridSize</span></td>
+  <td><span>500</span></td>
+  <td><span>The size of the graphics grid of the outputted plot</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span class="TableRowIconInline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td style='text-align: left;'><span>Opts`PlotFunc</span></td>
+  <td><span>RefLink[<span>ListDensityPlot</span>,paclet:ref/ListDensityPlot]</span></td>
+  <td><span>Choose the plotting function either ListPlot3D,&nbsp;&nbsp;ListDensityPlot, or ListContourPlot (Default: ListContourPlot)</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span class="TableRowIconInline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td style='text-align: left;'><span>Opts`Color</span></td>
+  <td><span>Rainbow</span></td>
+  <td><span class="TableTextInline">The color scheme of the plot</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span class="TableRowIconInline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td style='text-align: left;'><span>Opts`Scaling</span></td>
+  <td><span>Full</span></td>
+  <td><span class="TableTextInline">Asign the plot range to the color scheme.<br />&nbsp;&nbsp;&nbsp;&nbsp;Full =&gt; plot all matrix elements on the same scale<br />&nbsp;&nbsp;&nbsp;&nbsp;Scaled =&gt; Plot each element on a seporate scale&#8232;&nbsp;&nbsp;&nbsp;&nbsp;{min,max} =&gt; Plot all elements from min to max</span></td>
+ </tr>
+</table>
+
+<p class="PrimaryExamplesSection">
+ <span><img src="HTMLFiles/JonesPlot_6.gif" alt="JonesPlot_6.gif" width="72" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="ExampleSection">
+ Basic Examples&nbsp;&nbsp;<span class="ExampleCountInline">(2)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Use the Abs[ ] function to plot the apodization Jones Pupil
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPlot_7.gif" alt="JonesPlot_7.gif" width="593" height="95" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPlot_8.gif" alt="JonesPlot_8.gif" width="500" height="500" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/JonesPlot_9.gif" alt="JonesPlot_9.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ Use the Re[ ] function to plot the Jones Pupil real part of the Jones Pupil
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPlot_10.gif" alt="JonesPlot_10.gif" width="593" height="95" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPlot_11.gif" alt="JonesPlot_11.gif" width="500" height="500" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ Options&nbsp;&nbsp;<span class="ExampleCountInline">(5)</span>
+</p>
+
+
+
+<p class="ExampleSubsection">
+ Plot&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ All the options available to ListPlot3D, List DensityPlot3D and ListContourPlot are available to JonesParameterPlot.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPlot_12.gif" alt="JonesPlot_12.gif" width="593" height="303" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPlot_13.gif" alt="JonesPlot_13.gif" width="500" height="500" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/JonesPlot_14.gif" alt="JonesPlot_14.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ Specific Options&nbsp;&nbsp;<span class="ExampleCountInline">(5)</span>
+</p>
+
+
+
+<p class="ExampleSubsubsection">
+ PlotFunc&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ There are several plotting routines available for the JonesPlot
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPlot_15.gif" alt="JonesPlot_15.gif" width="593" height="175" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPlot_16.gif" alt="JonesPlot_16.gif" width="1536" height="502" style="vertical-align:middle;" usemap="#map_16" />
+<map name="map_16">
+<area shape="rect" coords="292,452,439,311" title="0.865" nohref="" />
+<area shape="rect" coords="292,452,439,319" title="0.866" nohref="" />
+<area shape="rect" coords="292,452,439,327" title="0.867" nohref="" />
+<area shape="rect" coords="292,452,439,336" title="0.868" nohref="" />
+<area shape="rect" coords="292,452,439,347" title="0.869" nohref="" />
+<area shape="rect" coords="292,452,439,358" title="0.87" nohref="" />
+<area shape="rect" coords="292,438,440,374" title="0.871" nohref="" />
+<area shape="rect" coords="34,449,182,306" title="0.0025" nohref="" />
+<area shape="rect" coords="34,442,182,307" title="0.005" nohref="" />
+<area shape="rect" coords="34,391,182,308" title="0.0075" nohref="" />
+<area shape="rect" coords="34,384,181,308" title="0.01" nohref="" />
+<area shape="rect" coords="37,377,179,312" title="0.0125" nohref="" />
+<area shape="rect" coords="37,370,179,315" title="0.015" nohref="" />
+<area shape="rect" coords="38,363,179,318" title="0.0175" nohref="" />
+<area shape="rect" coords="44,350,172,324" title="0.02" nohref="" />
+<area shape="rect" coords="292,192,440,48" title="0.0025" nohref="" />
+<area shape="rect" coords="292,187,440,49" title="0.005" nohref="" />
+<area shape="rect" coords="292,133,439,50" title="0.0075" nohref="" />
+<area shape="rect" coords="292,126,440,50" title="0.01" nohref="" />
+<area shape="rect" coords="295,119,437,53" title="0.0125" nohref="" />
+<area shape="rect" coords="295,113,436,57" title="0.015" nohref="" />
+<area shape="rect" coords="296,106,437,60" title="0.0175" nohref="" />
+<area shape="rect" coords="302,93,430,64" title="0.02" nohref="" />
+<area shape="rect" coords="36,194,180,48" title="0.893" nohref="" />
+<area shape="rect" coords="41,194,175,48" title="0.894" nohref="" />
+<area shape="rect" coords="48,194,167,47" title="0.895" nohref="" />
+<area shape="rect" coords="58,93,157,47" title="0.896" nohref="" />
+<area shape="rect" coords="70,75,145,48" title="0.897" nohref="" />
+<area shape="rect" coords="87,60,130,48" title="0.898" nohref="" />
+</map>
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/JonesPlot_17.gif" alt="JonesPlot_17.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsubsection">
+ Scaling&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ There are several different plot ranges can be used.&nbsp;&nbsp;The option Opts`Scaling controles this.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPlot_18.gif" alt="JonesPlot_18.gif" width="593" height="255" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPlot_19.gif" alt="JonesPlot_19.gif" width="1077" height="1018" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/JonesPlot_20.gif" alt="JonesPlot_20.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsubsection">
+ Color&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Any of the built in color schemes can be used.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPlot_21.gif" alt="JonesPlot_21.gif" width="593" height="159" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPlot_22.gif" alt="JonesPlot_22.gif" width="1026" height="1018" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/JonesPlot_23.gif" alt="JonesPlot_23.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsubsection">
+ Zoom&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ The central part of the Pupil can be plotted with Zoom.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPlot_24.gif" alt="JonesPlot_24.gif" width="600" height="159" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/JonesPlot_25.gif" alt="JonesPlot_25.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsubsection">
+ GridSize&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ The size of the plot can be changes with GridSize and ImageSize.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/JonesPlot_26.gif" alt="JonesPlot_26.gif" width="579" height="159" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/JonesPlot_27.gif" alt="JonesPlot_27.gif" width="850" height="850" style="vertical-align:middle" />
+</p>
+
+<p class="NotesSection">
+ <span><span><img src="HTMLFiles/JonesPlot_28.gif" alt="JonesPlot_28.gif" width="69" height="36" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="SeeAlso">
+ <span class="InlineFormulaInline"><span><img src="HTMLFiles/JonesPlot_29.gif" alt="JonesPlot_29.gif" width="126" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/JonesPlot_30.gif" alt="JonesPlot_30.gif" width="60" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/JonesPlot_31.gif" alt="JonesPlot_31.gif" width="59" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/JonesPlot_32.gif" alt="JonesPlot_32.gif" width="66" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> 
+</p>
+
+
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>

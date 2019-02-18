@@ -1,0 +1,21 @@
+{
+  "name": "PDFMerge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pdf_merge.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.3",
+    "easy-pdf-merge": "^0.2.0",
+    "fs": "0.0.1-security",
+    "node-pdftk": "^2.0.2",
+    "path": "^0.12.7",
+    "pdf-merge": "^1.2.0",
+    "pdfkit": "^0.9.0"
+  }
+}

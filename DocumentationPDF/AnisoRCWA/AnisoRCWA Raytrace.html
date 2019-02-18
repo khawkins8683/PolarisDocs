@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  AnisoRCWA Raytrace - AnisoRCWA`
+ </title>
+ <link href="HTMLFiles/AnisoRCWA Raytrace.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<table class='AnchorBarGrid'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span class="PacletNameCellInline">ANISORCWA` SYMBOL</span></td>
+  <td style='text-align: center;'><span class="AnchorBarInline"><span style='line-height: 1.4;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_1.gif" alt="AnisoRCWA Raytrace_1.gif" width="71" height="29" style="vertical-align:middle" /></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='line-height: 1.4;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_2.gif" alt="AnisoRCWA Raytrace_2.gif" width="45" height="29" style="vertical-align:middle" /></span></span></span></td>
+ </tr>
+</table>
+
+<p class="ObjectName">
+ AnisoRCWA Raytrace
+</p>
+
+
+
+<p class="PrimaryExamplesSection">
+ <a id="PrimaryExamplesSection"></a>
+ <span><img src="HTMLFiles/AnisoRCWA Raytrace_3.gif" alt="AnisoRCWA Raytrace_3.gif" width="72" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="ExampleText">
+ If the AnisRCWA routine is used in an optical system, the incident and exiting material properties must be entered with sys`material1 or sys`material2.&nbsp;&nbsp;There are many Isotropic and Anisotropic materials available in the Polaris-M catalog, see <span class="InlineFormulaInline"><span><img src="HTMLFiles/AnisoRCWA Raytrace_4.gif" alt="AnisoRCWA Raytrace_4.gif" width="106" height="16" style="vertical-align:middle" /></span></span>.&nbsp;&nbsp;The graiting geometry and meterial are defined by using the sys`coating`AnisoRCWA input fields.
+</p>
+
+
+
+<p class="PrimaryExamplesSection">
+ <span><img src="HTMLFiles/AnisoRCWA Raytrace_5.gif" alt="AnisoRCWA Raytrace_5.gif" width="54" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="ExampleText">
+ To create an AnisoRCWA surface, it is REQUIRED to enter sys`coating`type&rarr;&rdquo;ANISORCWA&rdquo;, in the CreateSurface function.<br /><br />Addition Inputs:
+</p>
+
+
+
+<p class="Notes">
+ sys`coating`AnisoRCWA`ordersCalculate &rarr; 20&nbsp;&nbsp;(Default)
+</p>
+
+
+
+<p class="ExampleText">
+ This input will set the number of fourier terms generated durring the AnisoRCWA calculations.&nbsp;&nbsp;More orders will yeild a more accurate resault, however, more orders will add to the computational time.
+</p>
+
+
+
+<p class="Notes">
+ sys`coating`AnisoRCWA`ordersReturned &rarr; {-2, -1, 0, 1, 2} (Defaults)
+</p>
+
+
+
+<p class="ExampleText">
+ A range of&nbsp;&nbsp;-sys`coating`AnisoRCWA`ordersCalculate, to +sys`coating`AnisoRCWA`ordersCalculate, will be calculated internally durring a raytrace.&nbsp;&nbsp;sys`coating`AnisoRCWA`ordersReturned, will specify which of those modes are to be turned into rays at the grating surface, and traced through the rest of the optical system.
+</p>
+
+
+
+<p class="Notes">
+ sys`coating`AnisoRCWA`gratingPeriod &rarr; 0.5 (Default)
+</p>
+
+
+
+<p class="ExampleText">
+ This is the physical length of the grating&rsquo;s structural period [&mu;m]
+</p>
+
+
+
+<p class="Notes">
+ sys`coating`AnisoRCWA`thicknessVec &rarr; {0.125,0.125} (Defaults)
+</p>
+
+
+
+<p class="ExampleText">
+ A list of thicknesses for each layer; the first element corresponds to the layer next to the incident material, and the last element correspond to layer next to substrate [&mu;m]
+</p>
+
+
+
+<p class="Notes">
+ sys`coating`AnisoRCWA`widthMatrix &rarr; {{0,0.4,0.6,1},{0,0.4,0.6,1}} (Defaults)
+</p>
+
+
+
+<p class="ExampleText">
+ A 2-D list describing start and stop positions for each block of the grating structure, normalized between 0 and 1; the first element corresponds to the layer next to the incident material, and the last element correspond to layer next to substrate [&mu;m]
+</p>
+
+
+
+<p class="Notes">
+ sys`coating`AnisoRCWA`electricPermiabilityMatrix &rarr; {{{1,1,1},{1.5^2,1.5^2,1.5^2},{1,1,1}},{{1,1,1},{1.5^2,1.5^2,1.5^2},{1,1,1}}} (Defaults)
+</p>
+
+
+
+<p class="ExampleText">
+ A 2-D list of electric permiativity tensor diagonals for each block specified in widthMatrix; the last element correspond to layer next to substrate. i.e. <span><span><img src="HTMLFiles/AnisoRCWA Raytrace_6.gif" alt="AnisoRCWA Raytrace_6.gif" width="120" height="55" style="vertical-align:middle" /></span></span> corresponds to <span><span><img src="HTMLFiles/AnisoRCWA Raytrace_7.gif" alt="AnisoRCWA Raytrace_7.gif" width="120" height="19" style="vertical-align:middle" /></span></span>.
+</p>
+
+
+
+<p class="Notes">
+ sys`coating`AnisoRCWA`magneticPermiabilityMatrix &rarr; {{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}}} (Defaults) 
+</p>
+
+
+
+<p class="ExampleText">
+ A 2-D list of magnetic permiativity tensor diagonals for each block specified in widthMatrix; the last element correspond to layer next to substrate. i.e. <span><span><img src="HTMLFiles/AnisoRCWA Raytrace_8.gif" alt="AnisoRCWA Raytrace_8.gif" width="120" height="55" style="vertical-align:middle" /></span></span> corresponds to <span><span><img src="HTMLFiles/AnisoRCWA Raytrace_9.gif" alt="AnisoRCWA Raytrace_9.gif" width="120" height="19" style="vertical-align:middle" /></span></span>.
+</p>
+
+
+
+<p class="Notes">
+ sys`coating`AnisoRCWA`gyroPermiabilityMatrix &rarr; {{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}}} (Defaults)
+</p>
+
+
+
+<p class="ExampleText">
+ A 2-D list of gyrotropic permiativity tensor diagonals for each block specified in widthMatrix; the last element correspond to layer next to substrate. i.e. <span><span><img src="HTMLFiles/AnisoRCWA Raytrace_10.gif" alt="AnisoRCWA Raytrace_10.gif" width="120" height="55" style="vertical-align:middle" /></span></span> corresponds to <span><span><img src="HTMLFiles/AnisoRCWA Raytrace_11.gif" alt="AnisoRCWA Raytrace_11.gif" width="120" height="19" style="vertical-align:middle" /></span></span>.
+</p>
+
+
+
+<p class="Notes">
+ sys`coating`AnisoRCWA`electricAxes &rarr; {{axes,axes,axes},{axes,axes,axes}} (Default)
+</p>
+
+
+
+<p class="ExampleText">
+ A 2-D list of the principal axes for the electric permiability tensor for each block specified in widthMatrix; the last element correspond to layer next to substrate.&nbsp;&nbsp;Where axes ={{lowX, lowY, lowZ},{highX, highY, highZ}}
+</p>
+
+
+
+<p class="Notes">
+ sys`coating`AnisoRCWA`magneticAxes &rarr; {{axes,axes,axes},{axes,axes,axes}} (Default)
+</p>
+
+
+
+<p class="ExampleText">
+ A 2-D list of the principal axes for the magnetic permiability tensor for each block specified in widthMatrix; the last element correspond to layer next to substrate.&nbsp;&nbsp;Where axes ={{lowX, lowY, lowZ},{highX, highY, highZ}}
+</p>
+
+
+
+<p class="Notes">
+ sys`coating`AnisoRCWA`gyroAxes &rarr; {{axes,axes,axes},{axes,axes,axes}} (Default)
+</p>
+
+
+
+<p class="ExampleText">
+ A 2-D list of the principal axes for the gyotropic tensor for each block specified in widthMatrix; the last element correspond to layer next to substrate.&nbsp;&nbsp;Where axes ={{lowX, lowY, lowZ},{highX, highY, highZ}}
+</p>
+
+
+
+<p class="PrimaryExamplesSection">
+ <span><img src="HTMLFiles/AnisoRCWA Raytrace_12.gif" alt="AnisoRCWA Raytrace_12.gif" width="72" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="ExampleSection">
+ Isotropic - grating - Isotropic&nbsp;&nbsp;
+</p>
+
+
+
+<p class="ExampleText">
+ Grating Parameters:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/AnisoRCWA Raytrace_13.gif" alt="AnisoRCWA Raytrace_13.gif" width="1856" height="576" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/AnisoRCWA Raytrace_14.gif" alt="Graphics:Grating Period" width="240" height="173" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/AnisoRCWA Raytrace_15.gif" alt="AnisoRCWA Raytrace_15.gif" width="506" height="943" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span>surfID</span></td>
+  <td style='text-align: center;'><span>shape</span></td>
+  <td style='text-align: center;'><span>material1</span></td>
+  <td style='text-align: center;'><span>material2</span></td>
+  <td style='text-align: center;'><span>v</span></td>
+  <td style='text-align: center;'><span>a</span></td>
+  <td style='text-align: center;'><span>aperture</span></td>
+  <td style='text-align: center;'><span>coating</span></td>
+  <td style='text-align: center;'><span>mode</span></td>
+  <td style='text-align: center;'><span>surfaceScatter</span></td>
+  <td style='text-align: center;'><span>surfaceLabel</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface 1</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>{Plane}</span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span>{0,0,0}</span></td>
+  <td style='text-align: center;'><span>{0,0,1}</span></td>
+  <td style='text-align: center;'><span>Function[{x,y,z},Norm[{x,y}]&lt;1.5]</span></td>
+  <td style='text-align: center;'><span>{ANISORCWA,5,{-1,0,1},3.13073,{0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988,0.0252988},{{0.,0.305043,0.694957,1.},{0.,0.302223,0.697777,1.},{0.,0.299403,0.700597,1.},{0.,0.296584,0.703416,1.},{0.,0.293764,0.706236,1.},{0.,0.290944,0.709056,1.},{0.,0.288124,0.711876,1.},{0.,0.285304,0.714696,1.},{0.,0.282484,0.717516,1.},{0.,0.279664,0.720336,1.},{0.,0.276844,0.723156,1.},{0.,0.274024,0.725976,1.},{0.,0.271204,0.728796,1.},{0.,0.268384,0.731616,1.},{0.,0.265564,0.734436,1.},{0.,0.262744,0.737256,1.},{0.,0.259924,0.740076,1.},{0.,0.257104,0.742896,1.},{0.,0.254284,0.745716,1.},{0.,0.251464,0.748536,1.},{0.,0.248644,0.751356,1.},{0.,0.245824,0.754176,1.},{0.,0.243004,0.756996,1.},{0.,0.240184,0.759816,1.},{0.,0.237364,0.762636,1.},{0.,0.234544,0.765456,1.},{0.,0.231725,0.768275,1.},{0.,0.228905,0.771095,1.},{0.,0.226085,0.773915,1.},{0.,0.223265,0.776735,1.}},{{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}},{{1,1,1},{2.14037,2.14037,2.14037},{1,1,1}}},{{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}},{{1,1,1},{1,1,1},{1,1,1}}},{{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}}},{{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}}},{{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}}},{{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}},{{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}},{{1,0,0},{0,0,1}}}},0,{1,0,0}}</span></td>
+  <td style='text-align: center;'><span>{Refract,Reflect}</span></td>
+  <td style='text-align: center;'><span>{}</span></td>
+  <td style='text-align: center;'><span></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface 2</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>{Plane}</span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span>{0,0,2}</span></td>
+  <td style='text-align: center;'><span>{0,0,1}</span></td>
+  <td style='text-align: center;'><span>Function[{x,y,z},Norm[{x,y}]&lt;3]</span></td>
+  <td style='text-align: center;'><span>{Perfect,Transmission,,}</span></td>
+  <td style='text-align: center;'><span>{Absorb}</span></td>
+  <td style='text-align: center;'><span>{}</span></td>
+  <td style='text-align: center;'><span></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface 3</span></td>
+  <td style='text-align: center;'><span>3</span></td>
+  <td style='text-align: center;'><span>{Plane}</span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span>{0,0,-2}</span></td>
+  <td style='text-align: center;'><span>{0,0,1}</span></td>
+  <td style='text-align: center;'><span>Function[{x,y,z},Norm[{x,y}]&lt;3]</span></td>
+  <td style='text-align: center;'><span>{Perfect,Transmission,,}</span></td>
+  <td style='text-align: center;'><span>{Absorb}</span></td>
+  <td style='text-align: center;'><span>{}</span></td>
+  <td style='text-align: center;'><span></span></td>
+ </tr>
+</table>
+
+<p class="ExampleText">
+ Create input ray and raytrace.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/AnisoRCWA Raytrace_16.gif" alt="AnisoRCWA Raytrace_16.gif" width="596" height="47" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/AnisoRCWA Raytrace_17.gif" alt="AnisoRCWA Raytrace_17.gif" width="53" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ Print the reflected rays.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/AnisoRCWA Raytrace_18.gif" alt="AnisoRCWA Raytrace_18.gif" width="745" height="31" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span>modeLabel</span></td>
+  <td style='text-align: center;'><span>r</span></td>
+  <td style='text-align: center;'><span>k</span></td>
+  <td style='text-align: center;'><span>PRTCumulative</span></td>
+  <td style='text-align: center;'><span>QCumulative</span></td>
+  <td style='text-align: center;'><span>MMCumulative</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface3</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_19.gif" alt="AnisoRCWA Raytrace_19.gif" width="97" height="27" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_20.gif" alt="AnisoRCWA Raytrace_20.gif" width="76" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_21.gif" alt="AnisoRCWA Raytrace_21.gif" width="84" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_22.gif" alt="AnisoRCWA Raytrace_22.gif" width="451" height="45" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_23.gif" alt="AnisoRCWA Raytrace_23.gif" width="178" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_24.gif" alt="AnisoRCWA Raytrace_24.gif" width="361" height="57" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface3</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_25.gif" alt="AnisoRCWA Raytrace_25.gif" width="90" height="27" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_26.gif" alt="AnisoRCWA Raytrace_26.gif" width="42" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_27.gif" alt="AnisoRCWA Raytrace_27.gif" width="42" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_28.gif" alt="AnisoRCWA Raytrace_28.gif" width="409" height="45" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_29.gif" alt="AnisoRCWA Raytrace_29.gif" width="94" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_30.gif" alt="AnisoRCWA Raytrace_30.gif" width="370" height="57" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface3</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_31.gif" alt="AnisoRCWA Raytrace_31.gif" width="90" height="27" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_32.gif" alt="AnisoRCWA Raytrace_32.gif" width="84" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_33.gif" alt="AnisoRCWA Raytrace_33.gif" width="84" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_34.gif" alt="AnisoRCWA Raytrace_34.gif" width="451" height="45" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_35.gif" alt="AnisoRCWA Raytrace_35.gif" width="186" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_36.gif" alt="AnisoRCWA Raytrace_36.gif" width="361" height="57" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+<p class="ExampleText">
+ Print the transmitted rays.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/AnisoRCWA Raytrace_37.gif" alt="AnisoRCWA Raytrace_37.gif" width="717" height="31" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span>modeLabel</span></td>
+  <td style='text-align: center;'><span>r</span></td>
+  <td style='text-align: center;'><span>k</span></td>
+  <td style='text-align: center;'><span>PRTCumulative</span></td>
+  <td style='text-align: center;'><span>QCumulative</span></td>
+  <td style='text-align: center;'><span>MMCumulative</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface2</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_38.gif" alt="AnisoRCWA Raytrace_38.gif" width="97" height="27" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_39.gif" alt="AnisoRCWA Raytrace_39.gif" width="76" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_40.gif" alt="AnisoRCWA Raytrace_40.gif" width="76" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_41.gif" alt="AnisoRCWA Raytrace_41.gif" width="416" height="45" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_42.gif" alt="AnisoRCWA Raytrace_42.gif" width="170" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_43.gif" alt="AnisoRCWA Raytrace_43.gif" width="348" height="57" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface2</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_44.gif" alt="AnisoRCWA Raytrace_44.gif" width="90" height="27" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_45.gif" alt="AnisoRCWA Raytrace_45.gif" width="34" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_46.gif" alt="AnisoRCWA Raytrace_46.gif" width="34" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_47.gif" alt="AnisoRCWA Raytrace_47.gif" width="353" height="45" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_48.gif" alt="AnisoRCWA Raytrace_48.gif" width="78" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_49.gif" alt="AnisoRCWA Raytrace_49.gif" width="304" height="57" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface2</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_50.gif" alt="AnisoRCWA Raytrace_50.gif" width="90" height="27" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_51.gif" alt="AnisoRCWA Raytrace_51.gif" width="84" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_52.gif" alt="AnisoRCWA Raytrace_52.gif" width="84" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_53.gif" alt="AnisoRCWA Raytrace_53.gif" width="416" height="45" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_54.gif" alt="AnisoRCWA Raytrace_54.gif" width="186" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/AnisoRCWA Raytrace_55.gif" alt="AnisoRCWA Raytrace_55.gif" width="348" height="57" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+<p class="ExampleText">
+ Plot the raytrace
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/AnisoRCWA Raytrace_56.gif" alt="AnisoRCWA Raytrace_56.gif" width="473" height="47" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/AnisoRCWA Raytrace_57.gif" alt="Graphics:None" width="360" height="376" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Raytrace_58.gif" alt="AnisoRCWA Raytrace_58.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="PrimaryExamplesSection">
+ <span><img src="HTMLFiles/AnisoRCWA Raytrace_59.gif" alt="AnisoRCWA Raytrace_59.gif" width="67" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="SeeAlso">
+ <span class="InlineFormulaInline"><span><img src="HTMLFiles/AnisoRCWA Raytrace_60.gif" alt="AnisoRCWA Raytrace_60.gif" width="184" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/AnisoRCWA Raytrace_61.gif" alt="AnisoRCWA Raytrace_61.gif" width="129" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/AnisoRCWA Raytrace_62.gif" alt="AnisoRCWA Raytrace_62.gif" width="115" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> 
+</p>
+
+
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>

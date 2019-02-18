@@ -1,0 +1,891 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  AnisoRCWA Prompting Guide - AnisoRCWA`
+ </title>
+ <link href="HTMLFiles/AnisoRCWA Prompting Guide.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<table class='AnchorBarGrid'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span class="PacletNameCellInline">ANISORCWA` SYMBOL</span></td>
+  <td style='text-align: center;'><span class="AnchorBarInline"><span style='line-height: 1.4;'><span><img src="HTMLFiles/AnisoRCWA Prompting Guide_1.gif" alt="AnisoRCWA Prompting Guide_1.gif" width="71" height="29" style="vertical-align:middle" /></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='line-height: 1.4;'><span><img src="HTMLFiles/AnisoRCWA Prompting Guide_2.gif" alt="AnisoRCWA Prompting Guide_2.gif" width="45" height="29" style="vertical-align:middle" /></span></span></span></td>
+ </tr>
+</table>
+
+<p class="ObjectName">
+ AnisoRCWA Prompting Guide
+</p>
+
+
+
+<p class="ExampleText">
+ The Anisotropic RCWA module can be run inside of a Polaris-M raytrace or as a standalone calculation.&nbsp;&nbsp;When the module is run inside of a ray trace, the AnsioRCWA input is generated from the optical system and ray data.&nbsp;&nbsp;Similarly, all returned amplitude is provided in the raydata, as PRT matricies.&nbsp;&nbsp;The Propigation directions, Poynting vectors and mode fields will also be returned in the ray data.&nbsp;&nbsp;When the system is run independently, more information is returned.
+</p>
+
+
+
+<p class="Text">
+ <span><span><img src="HTMLFiles/AnisoRCWA Prompting Guide_3.gif" alt="AnisoRCWA Prompting Guide_3.gif" width="653" height="41" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="NotesSection">
+ <span><span><img src="HTMLFiles/AnisoRCWA Prompting Guide_4.gif" alt="AnisoRCWA Prompting Guide_4.gif" width="313" height="36" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="PrimaryExamplesSection">
+ <a id="PrimaryExamplesSection"></a>
+ <span><img src="HTMLFiles/AnisoRCWA Prompting Guide_5.gif" alt="AnisoRCWA Prompting Guide_5.gif" width="72" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="ExampleText">
+ The AnisoRCWA package calculates the amplitude reflectances and transmission coefficients for diffractive optical elements which incorporate birefringent and gyrotropic materials. As such, all refractive index information is entered as dielectric tensors and Gyrotropic tensors. Matrices proportional to identity matrices are entered for isotropic materials. Three input parameters have units of length, wavelength, grating period, and the layer thicknesses. These three can be entered in any unit since the calculation scales with size, but the units for wavelength, grating period, and the layer thicknesses must all be in the same units.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_6.gif" alt="AnisoRCWA Prompting Guide_6.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ RCWA Simulation&nbsp;&nbsp;<span class="ExampleCountInline"></span>
+</p>
+
+
+
+<p class="ExampleText">
+ The Rigorous Coupled-Wave Theory (RCWA) is widely used for the analysis and the design of diffractive structures. RCWA yields exact solutions for the electromagnetic properties of the structures. It is a relatively straightforward, non-iterative, deterministic technique. The accuracy of the solution depends solely on the number of Fourier terms retained in the Floquet-Fourier expansions of the grating structure, with conservation of energy always being satisfied. RCWA algorithm was developed initially for holographic volume gratings. Later, RCWA was extended to surface-relief and multilevel grating structures. It has been successfully applied to transmission and reflection planar dielectric and/or absorption holographic gratings, arbitrarily profiled dielectric and/or metallic surface-relief gratings, multiplexed holographic gratings, two-dimensional surface-relief gratings, and anisotropic gratings, for both planar and conical diffraction<br />In the technique of analyzing the diffraction from surface-relief grating structures, the grating is divided into a large number of sufficiently thin planar grating slabs to approximate the grating profile to an arbitrary degree of accuracy. The electromagnetic fields in each grating layer are determined by the coupled-wave approach. The electromagnetic boundary conditions (continuity of the tangential electric- and magnetic-field components) are then applied in sequence at the interfaces among the output region, the individual grating layers, and finally the input region to yield the reflected and the transmitted diffracted field amplitudes and the diffraction efficiencies.<br />Here, an RCWA simulation code for gyrotropic gratings, which adopts the symmetric constitutive relations, is provided. The algorithms are applicable to gratings made with either gyrotropic or non-gyrotropic materials or mixtures of the two. The incident, exiting and grating materials can be isotropic, uniaxial or biaxial, with or without optical activity. The principal values of the electric permittivity tensor, the magnetic permeability tensor and the gyrotropic tensor can take arbitrary values. The optical axes of the materials may be arbitrarily and independently oriented. The scattering matrix method is employed to solve the boundary condition equations for numerical stability. <br />Note that the relative magnetic permeability is assumed to be one in AnisoRCWA.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_7.gif" alt="AnisoRCWA Prompting Guide_7.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ Theoretical Background&nbsp;&nbsp;<span class="ExampleCountInline"></span>
+</p>
+
+
+
+<p class="ExampleText">
+ This RCWA subroutine is based on a technique to analyze the diffraction from surface-relief grating structures.&nbsp;&nbsp;The grating is divided into a large number of sufficiently thin planar grating slabs to approximate the grating profile to an arbitrary degree of accuracy. The electromagnetic fields in each grating layer are determined by the coupled-wave approach. The electromagnetic boundary conditions (continuity of the tangential electric- and magnetic-field components) are then applied in sequence at the interfaces among the output region, the individual grating layers, and finally the input region to yield the reflected and the transmitted diffracted field amplitudes and the diffraction efficiencies.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_8.gif" alt="AnisoRCWA Prompting Guide_8.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="PrimaryExamplesSection">
+ <span><img src="HTMLFiles/AnisoRCWA Prompting Guide_9.gif" alt="AnisoRCWA Prompting Guide_9.gif" width="54" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="ExampleSection">
+ Function Call&nbsp;&nbsp;<span class="ExampleCountInline"></span>
+</p>
+
+
+
+<p class="ExampleText">
+ GyroOut = GyroRCWA[precisionCfg, gratingGeomCfg, flagCfg, mat1Cfg, mat2Cfg, gratingMatCfg]
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_10.gif" alt="AnisoRCWA Prompting Guide_10.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ precisionCfg&nbsp;&nbsp;<span class="ExampleCountInline"></span>
+</p>
+
+
+
+<p class="ExampleText">
+ precisionCfg&nbsp;&nbsp;=&nbsp;&nbsp;{odrNum, prsNum}
+</p>
+
+
+
+<p class="ExampleSubsection">
+ odrNum&nbsp;&nbsp;<span class="ExampleCountInline">(scalar)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ the number of the Fourier terms used in Fourier expansion of the index variation which describes the grating structure. 2*odrNum+1 terms (-odrNumth to&nbsp;&nbsp;+odrNumth order) will be used.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_11.gif" alt="AnisoRCWA Prompting Guide_11.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ prsNum&nbsp;&nbsp;<span class="ExampleCountInline">(scalar)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ The number of significant digits of the parameters are adjustable. &ldquo;prsPnt&rdquo; sets the significant digits of the parameters [prsNum]<br />&nbsp;&nbsp;&nbsp;&nbsp;prsPnt: 0 &rarr; machine precision<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 &rarr; 19 digits<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 &rarr; 38 digits<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 &rarr; 57 digits
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_12.gif" alt="AnisoRCWA Prompting Guide_12.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ gratingGeomCfg&nbsp;&nbsp;
+</p>
+
+
+
+<p class="ExampleText">
+ gratingGeomCfg&nbsp;= {lambda, kinAng, grnK, grnAxes, cperd, grheight}
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_13.gif" alt="AnisoRCWA Prompting Guide_13.gif" width="741" height="451" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ The grating description consists of a series of layers parallel to the substrate (first subscripts).Each layer consists of an arbitrary arrangement of sections (second subscripts),numbered from left to right.
+</p>
+
+
+
+<p class="ExampleSubsection">
+ lambda&nbsp;&nbsp;<span class="ExampleCountInline">(scalar)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ The wavelength of the incident light.&nbsp;&nbsp;The units of lambda are arbitrary, but must match the units of the thickness and period.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_14.gif" alt="AnisoRCWA Prompting Guide_14.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ kinAng&nbsp;&nbsp;<span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ KinAng = { &theta;, &phi; }<br />The incident light is specified by the angle of incidence, &theta;, and the azimuthal angle, &phi;, defined in Fig. 1. Unit of angles is in radians. Polarization state should be one of the eigen polarization states of the incident wave.<br /><br /><span class="InputInline"><span><img src="HTMLFiles/AnisoRCWA Prompting Guide_15.gif" alt="AnisoRCWA Prompting Guide_15.gif" width="774" height="413" style="vertical-align:middle" /></span></span><br /><br />The x-axis is perpendicular to the ruling. The y-axis is parallel to the ruling. The z-axis is normal to the grating surface and its direction is oriented toward the exiting material. The direction of k-vector is the direction to which the ray propagates. The t-vector lies on plane of incidence and its z component is negative when the ray propagates toward an interface from incident medium. The n-vector is normal to plane of incidence and its direction is defined by (n-vector) = (k-vector) x (t-vector). The signs of the angles are defined according to right-handed rule.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_16.gif" alt="AnisoRCWA Prompting Guide_16.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ grnK&nbsp;&nbsp;<span class="ExampleCountInline">(scalar)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Grating period grnK is the period of the grating structure.&nbsp;&nbsp;The unit of parameter grnK is arbitrary, but it should be consistent with those of the thickness and the wavelength of the incident wave (lambda).
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_17.gif" alt="AnisoRCWA Prompting Guide_17.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ grnAng&nbsp;&nbsp;<span class="ExampleCountInline">(scalar)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Currently, this parameter must be set to 0.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_18.gif" alt="AnisoRCWA Prompting Guide_18.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ cperd&nbsp;&nbsp;<span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ cperd:&nbsp;&nbsp;the matrix consists of xij.<br />xij:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the fraction of the x-coordinate of the boundary between jth and j+1th section to the period of the grating. The value of all elements should be 0 to 1.<br />&nbsp;&nbsp;&nbsp;&nbsp;cperd={ {x11, x12, &hellip; , x1(M+1)}, {x21, x22, &hellip; , x2(M+1)}, &hellip;., {xN1, xN2, &hellip; , xN(M+1)} }
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_19.gif" alt="AnisoRCWA Prompting Guide_19.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ grheight&nbsp;&nbsp;<span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ The row vector consists of hi.<br />hi:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the thickness of the ith layer<br />&nbsp;&nbsp;&nbsp;&nbsp;grheight={h1, h2, &hellip; , hL}
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_20.gif" alt="AnisoRCWA Prompting Guide_20.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ flagCfg&nbsp;
+</p>
+
+
+
+<p class="ExampleText">
+ flagCfg = {flagCntl, flagPol, flagMat01, flagMat02, pntDsp}
+</p>
+
+
+
+<p class="ExampleSubsection">
+ flagCntl&nbsp;&nbsp;<span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ This input is used to display intermediate results during the calculation: <br /><br />flagCntl={0, 0, 0, 0, 0} (display)<br /><br />flagCntl[[1]]:&nbsp;&nbsp;&nbsp;&nbsp;Displays the checksum list for the wave vectors and the fields of the incident wave calculated in dispersion module A, when flgCntl[[1]]=1.<br />flagCntl[[2]]:&nbsp;&nbsp;&nbsp;&nbsp;Displays the checksum list for the wave vectors and the fields of the incident wave calculated in dispersion module A and B, when flgCntl[[1]]=1 and flgCntl[[2]]=1.<br />flagCntl[[3]]:&nbsp;&nbsp;&nbsp;&nbsp;Displays the z-component values of all possible electromagnetic waves for all diffracted orders when flgCntl[[3]]=1.<br />flagCntl[[4]]:&nbsp;&nbsp;&nbsp;&nbsp;Displays the values of E, D, B, and H-fields of all possible electromagnetic waves for all diffracted orders and checksum lists when flgCntl[[4]]=1.<br />flagCntl[[5]]:&nbsp;&nbsp;&nbsp;&nbsp;Reserved for future use.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_21.gif" alt="AnisoRCWA Prompting Guide_21.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ flagPol&nbsp;&nbsp;<span class="ExampleCountInline">(binary)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ flgPol describes the polarization state of the incident wave.&nbsp;&nbsp;This will vary based on the incident material definition.&nbsp;&nbsp;<br />For Anisotropic media:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flagPol=0: Low mode (E-Field that corresponds to the lowest index direction)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flagPol=1: High mode (E-Field that corresponds to the highest index direction)<br />For Isotropic media:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flagPol=0: S or TE polarization<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flagPol=1: P or TM polarization<br />
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_22.gif" alt="AnisoRCWA Prompting Guide_22.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ flagMat01/02 <span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ flgMat01 and flgMat02 are four element vectors describing the types of the incident and exiting materials. <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;Isotropic non-gyrotropic,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{1,0,0,0,0}<br />&nbsp;&nbsp;&nbsp;&nbsp;Uniaxial non-gyrotropic,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{0,1,0,0,0}<br />&nbsp;&nbsp;&nbsp;&nbsp;Biaxial non-gyrotropic,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{0,0,1,0,0}<br />&nbsp;&nbsp;&nbsp;&nbsp;Gyrotropic,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{0,0,0,1,0}<br />&nbsp;&nbsp;&nbsp;&nbsp;Null,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{0,0,0,0,1}<br />
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_23.gif" alt="AnisoRCWA Prompting Guide_23.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ pntDsp <span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ pntDsp={0, 1, 1, 0, 0.0001}<br /><br />pntDsp[[1]]:&nbsp;&nbsp;&nbsp;&nbsp;Displays the total incident energy, total diffracted energy, total reflected energy, total transmitted energy, fraction of reflected energy, fraction of transmitted energy, and the difference between the total incident energy and the total diffracted energy, when pntDsp[[1]]=1.<br />pntDsp[[2]]:&nbsp;&nbsp;&nbsp;&nbsp;Displays the absolute diffracted energy of all diffracted waves in addition to the items listed above (pntDsp[[1]]) when pntDsp[[1]]=1 and pntDsp[[2]]=1.The absolute diffracted energy is calculated with respect to the incident wave of unit amplitude.<br />pntDsp[[3]]:&nbsp;&nbsp;&nbsp;&nbsp;Displays the relative diffracted energy of all diffracted waves in addition to the items listed above (pntDsp[[1]]) when pntDsp[[1]]=1 and pntDsp[[3]]=1. The relative diffracted energy is calculated as a fraction of the energy with respect to the incident energy of unit power.<br />pntDsp[[4]]:&nbsp;&nbsp;&nbsp;&nbsp;Reserved for future.<br />pntDsp[[5]]:&nbsp;&nbsp;&nbsp;&nbsp;indicate the digits of the values to be shown.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_24.gif" alt="AnisoRCWA Prompting Guide_24.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ mat01Cfg&nbsp;
+</p>
+
+
+
+<p class="ExampleText">
+ Incident Material specification.<br />mat01Cfg&nbsp;agCfg = {epsPar01, muPar01, gPar01, matAxes01}
+</p>
+
+
+
+<p class="ExampleSubsection">
+ epsPar01 <span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ The row vector consisting of the principle relative electric permittivities of the incident material.<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;epsPar01 = { [&epsilon;1]x, [&epsilon;1]y, [&epsilon;1]z }, where [&epsilon;1]x &le; [&epsilon;1]y &le; [&epsilon;1]z&nbsp;&nbsp;&nbsp;must hold for proper orientation<br />
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_25.gif" alt="AnisoRCWA Prompting Guide_25.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ muPar01 <span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ The row vector consisting of the principle relative magnetic permeabilities of the incident material.<br /><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;muPar01 = { [&mu;1]x, [&mu;1]y, [&mu;1]z }, where [&mu;1]x &le; [&mu;1]y &le; [&mu;1]z&nbsp;&nbsp;&nbsp;must hold for proper orientation<br />
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_26.gif" alt="AnisoRCWA Prompting Guide_26.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ gPar01 <span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ The row vector consisting of the principle gyrotropic constants of the incident material.<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;gPar01 = { [g1]x, [g1]y, [g1]z }, where [g1]x &le; [g1]y &le; [g1]z&nbsp;&nbsp;&nbsp;must hold for proper orientation<br />
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_27.gif" alt="AnisoRCWA Prompting Guide_27.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ matAxes01 <span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ The vector consisting of {lowAxes, highAxes}&nbsp;&nbsp;which correspond to the low and high index directions. It is assumed that the electric permittivity, the magnetic permeability and the gyrotropic constant of the incident material have the same principle axes.<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;matAxes01 = { {1,0,0}, {0,0,1}}<br />
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_28.gif" alt="AnisoRCWA Prompting Guide_28.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ mat02Cfg&nbsp;
+</p>
+
+
+
+<p class="ExampleText">
+ Exiting Material specification.<br />mat02Cfg&nbsp;agCfg = {epsPar02, muPar02, gPar02, matAxes02}
+</p>
+
+
+
+<p class="ExampleSubsection">
+ epsPar02 <span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ The row vector consisting of the principle relative electric permittivities of the incident material.<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;epsPar02 = { [&epsilon;2]x, [&epsilon;2]y, [&epsilon;2]z }, where [&epsilon;2]x &le; [&epsilon;2]y &le; [&epsilon;1]z&nbsp;&nbsp;&nbsp;must hold for proper orientation<br />
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_29.gif" alt="AnisoRCWA Prompting Guide_29.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ muPar02 <span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ The row vector consisting of the principle relative magnetic permeabilities of the incident material.<br /><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;muPar02 = { [&mu;2]x, [&mu;2]y, [&mu;2]z }, where [&mu;2]x &le; [&mu;2]y &le; [&mu;2]z&nbsp;&nbsp;&nbsp;must hold for proper orientation<br />
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_30.gif" alt="AnisoRCWA Prompting Guide_30.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ gPar02 <span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ The row vector consisting of the principle gyrotropic constants of the incident material.<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;gPar02 = { [g2]x, [g2]y, [g2]z }, where [g2]x &le; [g2]y &le; [g2]z&nbsp;&nbsp;&nbsp;must hold for proper orientation<br />
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_31.gif" alt="AnisoRCWA Prompting Guide_31.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ matAxes02 <span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ The vector consisting of {lowAxes, highAxes}&nbsp;&nbsp;which correspond to the low and high index directions. It is assumed that the electric permittivity, the magnetic permeability and the gyrotropic constant of the incident material have the same principle axes.<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;matAxes02 = { {1,0,0}, {0,0,1}}<br />
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_32.gif" alt="AnisoRCWA Prompting Guide_32.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ gratingMatCfg&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+
+
+<p class="ExampleText">
+ Grating material Specification:<br /><br />gratingMatCfg&nbsp;= {epsGrate, muGrate, gGrate, epsAxes, muAxes, gAxes}
+</p>
+
+
+
+<p class="ExampleSubsection">
+ epsGrate <span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ &epsilon;ij:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The principle relative electric permittivity tensor of the jth section in the ith layer.<br /><br />The matrix which represents the relative electric permittivity tensor for the entire grating structure having the following structure:<br /><br />epsGrate={ { { [&epsilon;11]x, [&epsilon;11]y, [&epsilon;11]z }11, { [&epsilon;12]x, [&epsilon;12]y, [&epsilon;12]z }12, &hellip;. , { [&epsilon;1M]x, [&epsilon;1M]y, [&epsilon;1M]z }1M},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ { [&epsilon;21]x, [&epsilon;21]y, [&epsilon;21]z }21, { [&epsilon;22]x, [&epsilon;22]y, [&epsilon;22]z }22, &hellip;. , { [&epsilon;2M]x, [&epsilon;2M]y, [&epsilon;2M]z }2M },<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ { [&epsilon;N1]x, [&epsilon;N1]y, [&epsilon;N1]z }N1, { [&epsilon;N2]x, [&epsilon;N2]y, [&epsilon;N2]z }N2, &hellip;. , { [&epsilon;NM]x, [&epsilon;NM]y, [&epsilon;NM]z }NM } },<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where [&epsilon;]x &le; [&epsilon;]y &le; [&epsilon;]z&nbsp;&nbsp;&nbsp;must hold for proper orientation<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_33.gif" alt="AnisoRCWA Prompting Guide_33.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ muGrate <span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ &mu;ij:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The principle relative electric permittivity tensor of the jth section in the ith layer.<br /><br />The matrix which represents the relative magnetic permeability tensor for the entire grating structure having the following structure:<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;muGrate={ { { [&mu;11]x, [&mu;11]y, [&mu;11]z }, { [&mu;12]x, [&mu;12]y, [&mu;12]z }, &hellip;. , { [&mu;1M]x, [&mu;1M]y, [&mu;1M]z } },<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ { [&mu;21]x, [&mu;21]y, [&mu;21]z }, { [&mu;22]x, [&mu;22]y, [&mu;22]z }, &hellip;. , { [&mu;2M]x, [&mu;2M]y, [&mu;2M]z } },<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ { [&mu;N1]x, [&mu;N1]y, [&mu;N1]z }, { [&mu;N2]x, [&mu;N2]y, [&mu;N2]z }, &hellip;. , { [&mu;NM]x, [&mu;NM]y, [&mu;NM]z } } }<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where [&mu;]x &le; [&mu;]y &le; [&mu;]z&nbsp;&nbsp;&nbsp;must hold for proper orientation<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_34.gif" alt="AnisoRCWA Prompting Guide_34.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ gGrate <span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ gij:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The principle relative electric permittivity tensor of the jth section in the ith layer.<br /><br />Lists the axes for the relative electric permittivity tensors by layer.&nbsp;&nbsp;The matrix represents the array of crystal axes for the entire grating having the following structure:<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;gcfGPrn={ { { [g11]x, [g11]y, [g11]z }11, { [g12]x, [g12]y, [g12]z }12, &hellip;. , { [g1M]x, [g1M]y, [g1M]z }1M },<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ { [g21]x, [g21]y, [g21]z }21, { [g22]x, [g22]y, [g22]z }22, &hellip;. , { [g2M]x, [g2M]y, [g2M]z }2M },<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ { [gN1]x, [gN1]y, [gN1]z }N1, { [gN2]x, [gN2]y, [gN2]z }N2, &hellip;. , { [gNM]x, [gNM]y, [gNM]z }NM } }<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where [g]x &le; [g]y &le; [g]z&nbsp;&nbsp;&nbsp;must hold for proper orientation
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_35.gif" alt="AnisoRCWA Prompting Guide_35.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ epsAxes <span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Lists the axes for the relative magnetic permittivity tensors by layer.&nbsp;&nbsp;The matrix represents the array of crystal axes for the entire grating having the following structure:<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;epsAxes={{{ lowAxes, highAxes}11, {lowAxes, highAxes}12&hellip;. , { lowAxes, highAxes}1M},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ lowAxes, highAxes}21, {lowAxes, highAxes}22&hellip;. , { lowAxes, highAxes}2M},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ lowAxes, highAxes}N1, {lowAxes, highAxes}N2&hellip;. , { lowAxes, highAxes}NM }}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Where lowAxes = {LX, LY, LZ}, and highAxes = {hX, mX, hX}
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_36.gif" alt="AnisoRCWA Prompting Guide_36.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ muAxes <span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Lists the axes for the relative magnetic permittivity tensors by layer.&nbsp;&nbsp;The matrix represents the array of crystal axes for the entire grating having the following structure:<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;muAxes={{{ lowAxes, highAxes}11, {lowAxes, highAxes}12&hellip;. , { lowAxes, highAxes}1M},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ lowAxes, highAxes}21, {lowAxes, highAxes}22&hellip;. , { lowAxes, highAxes}2M},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ lowAxes, highAxes}N1, {lowAxes, highAxes}N2&hellip;. , { lowAxes, highAxes}NM }}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Where lowAxes = {LX, LY, LZ}, and highAxes = {hX, mX, hX}
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_37.gif" alt="AnisoRCWA Prompting Guide_37.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ gAxes <span class="ExampleCountInline">(array)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Lists the axes for the relative gyrotropic tensors by layer.&nbsp;&nbsp;The matrix represents the array of crystal axes for the entire grating having the following structure:<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;gAxes = {{{ lowAxes, highAxes}11, {lowAxes, highAxes}12&hellip;. , { lowAxes, highAxes}1M},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ lowAxes, highAxes}21, {lowAxes, highAxes}22&hellip;. , { lowAxes, highAxes}2M},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ lowAxes, highAxes}N1, {lowAxes, highAxes}N2&hellip;. , { lowAxes, highAxes}NM }}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Where lowAxes = {LX, LY, LZ}, and highAxes = {hX, mX, hX}
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_38.gif" alt="AnisoRCWA Prompting Guide_38.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="PrimaryExamplesSection">
+ <span><img src="HTMLFiles/AnisoRCWA Prompting Guide_39.gif" alt="AnisoRCWA Prompting Guide_39.gif" width="63" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="ExampleText">
+ GyroRCWA[args_] returns an array of 12 outputs.
+</p>
+
+
+
+<p class="ExampleText">
+ EigenPolarizations&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ A {4, 2, 3} array. The first level indicates {Kin, Din,Ein, Hin}, the second level indicates mode pol 0 values or mode pol 1 values, and the third level represents {x,y,z}.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_40.gif" alt="AnisoRCWA Prompting Guide_40.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ k-In&nbsp;&nbsp;<span class="ExampleCountInline">(2)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ A {4,3} array. The first level indicates {Kin, Din,Ein, Hin}, the second level represents the {x,y,z} values for the mode pol used in the calculation.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_41.gif" alt="AnisoRCWA Prompting Guide_41.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ k-Out&nbsp;&nbsp;<span class="ExampleCountInline">(3)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ A {2*orderNum+1, 4, 3} array.&nbsp;&nbsp;The first level indicates the diffraction order (the orders are cetered around the 0th order). The second level indicates the Kout vector for the Reflected 0 mode, the Reflected 1 mode, the Transimitted 0 mode and the Transmitted 1 mode. The third level represents {x,y,z}.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_42.gif" alt="AnisoRCWA Prompting Guide_42.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ D-Out&nbsp;&nbsp;<span class="ExampleCountInline">(4)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ A {2*orderNum+1, 4, 3} array.&nbsp;&nbsp;The first level indicates the diffraction order (the orders are cetered around the 0th order). The second level indicates the Dout vector for the Reflected 0 mode, the Reflected 1 mode, the Transimitted 0 mode and the Transmitted 1 mode. The third level represents {x,y,z}.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_43.gif" alt="AnisoRCWA Prompting Guide_43.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ E-Out&nbsp;&nbsp;<span class="ExampleCountInline">(5)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ A {2*orderNum+1, 4, 3} array.&nbsp;&nbsp;The first level indicates the diffraction order (the orders are cetered around the 0th order). The second level indicates the Eout vector for the Reflected 0 mode, the Reflected 1 mode, the Transimitted 0 mode and the Transmitted 1 mode. The third level represents {x,y,z}.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_44.gif" alt="AnisoRCWA Prompting Guide_44.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ H-Out&nbsp;&nbsp;<span class="ExampleCountInline">(6)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ A {2*orderNum+1, 4, 3} array.&nbsp;&nbsp;The first level indicates the diffraction order (the orders are cetered around the 0th order). The second level indicates the Hout vector for the Reflected 0 mode, the Reflected 1 mode, the Transimitted 0 mode and the Transmitted 1 mode. The third level represents {x,y,z}.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_45.gif" alt="AnisoRCWA Prompting Guide_45.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ S-Out&nbsp;<span class="ExampleCountInline">(7)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ A {2*orderNum+1, 4, 3} array.&nbsp;&nbsp;The first level indicates the diffraction order (the orders are cetered around the 0th order). The second level indicates the Sout vector (Poynting vector) for the Reflected 0 mode, the Reflected 1 mode, the Transimitted 0 mode and the Transmitted 1 mode. The third level represents {x,y,z}.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_46.gif" alt="AnisoRCWA Prompting Guide_46.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ AmplitudeCoeffs&nbsp;&nbsp;<span class="ExampleCountInline">(8)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ A {2*orderNum+1, 4} array.&nbsp;&nbsp;The first level indicates the diffraction order (the orders are cetered around the 0th order). The second level indicates the complex amplitude coefficient for the Reflected 0 mode, the Reflected 1 mode, the Transimitted 0 mode and the Transmitted 1 mode respectively.<br /><br />* The complex amplitude coefficients describe the amplitudes and the phases of the E-field of the diffracted waves. The energy reflectance and transmittance describe the energy distributed to each diffracted wave with respect to the incident energy of unity. Cosine factor is considered in obtaining energy reflectance and transmittance.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_47.gif" alt="AnisoRCWA Prompting Guide_47.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ EnergyCoeffs&nbsp;&nbsp;<span class="ExampleCountInline">(9)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ A {2*orderNum+1, 4} array.&nbsp;&nbsp;The first level indicates the diffraction order (the orders are cetered around the 0th order). The second level indicates the diffracted energy for the Reflected 0 mode, the Reflected 1 mode, the Transimitted 0 mode and the Transmitted 1 mode respectively.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_48.gif" alt="AnisoRCWA Prompting Guide_48.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ EnergyIn&nbsp;&nbsp;<span class="ExampleCountInline">(10)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ The total incident energy per unit area at the interface with respect to&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the incident wave of unit amplitude.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_49.gif" alt="AnisoRCWA Prompting Guide_49.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ &Delta;E&nbsp;&nbsp;<span class="ExampleCountInline">(11)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ The difference between the incident energy and the total diffracted energy - should be zero for lossless media.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_50.gif" alt="AnisoRCWA Prompting Guide_50.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ EnergyDiff &nbsp;<span class="ExampleCountInline">(12)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ The total diffracted energy - should be unity for lossless media.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_51.gif" alt="AnisoRCWA Prompting Guide_51.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="PrimaryExamplesSection">
+ <span><img src="HTMLFiles/AnisoRCWA Prompting Guide_52.gif" alt="AnisoRCWA Prompting Guide_52.gif" width="139" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="ExampleText">
+ BirefRCWA subroutine uses the &ldquo;increasing phase&rdquo; sign convention.By using this sign convention,a plane wave is expressed as Exp[i(wt-kr)].Due to the sign convention,the imaginary part of the refractive indices must be negative for absorbing materials.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_53.gif" alt="AnisoRCWA Prompting Guide_53.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="PrimaryExamplesSection">
+ <span><img src="HTMLFiles/AnisoRCWA Prompting Guide_54.gif" alt="AnisoRCWA Prompting Guide_54.gif" width="139" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="ExampleText">
+ During a polarization ray trace analysis of an optical system containing an anisotropic grating, Jones matrices and polarization ray matrices are needed for each of the set of rays exiting the ray intercept. For anisotropic materials, the incident &ldquo;ray&rdquo; is in a specified polarization state, because it is a particular mode of that material, O or E for example, and one incident polarization state is input to the GyroRCWA calculation. For isotropic incident materials, the incident E field is not specified. So for isotropic incident materials a &ldquo;mode combination&rdquo; operation must be performed to combine the fractions of the s and p-incident light which join into particular exiting beams, O and E for example. <br /><br />Consider a grating at an isotropic into uniaxial material. For the exiting E ray, it is not known before the calculation which polarization state, an arbitrary combination of s and p called F here, will transform 100% into E; it can only be determined after the calculation. The desired P matrix will take F into the E ray with the appropriate amplitude coefficient, obtained by combining the amplitude coefficients for s &rarr; E and p &rarr; E. The remainder of the incident light G, orthogonal to F, will map into the O ray, and its amplitude coefficient, is obtained by combining the amplitude coefficients for s &rarr; O and p &rarr; O. Thus after the initial calculation of diffraction efficiencies with GyroRCWA, we can &ldquo;mode match&rdquo; incident F to E and G to O in this example.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_55.gif" alt="AnisoRCWA Prompting Guide_55.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="PrimaryExamplesSection">
+ <span><img src="HTMLFiles/AnisoRCWA Prompting Guide_56.gif" alt="AnisoRCWA Prompting Guide_56.gif" width="247" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="ExampleText">
+ RCWA algorithms have a tradeoff between computational speed, due to the number of evanescent orders calculated (ordNUM), and accuracy of the amplitude coefficients. In general, the more orders included in the calculation, the more accurate the result. When first setting up a new diffractive optical element, the convergence of the amplitude calculation with the number of orders should be explored to determine a practical numbers of orders needed to calculate to an acceptable accuracy. Some simple gratings can be simulated with less than 10 orders. Deep gratings and complex gratings may require more than 200 orders.<br /><br />Amplitude coefficients can vary rapidly in wavelength and angle when any of the diffraction orders approach 90o diffraction angle, the condition known as Woods anomalies. More orders may be required for an accurate calculation in a small region around each Woods anomaly. Extra calculations may be useful by sampling on a smaller wavelength or angle scale in these regions to understand the behavior of the grating. General rules cannot be provided, numeric experimentation is suggested.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/AnisoRCWA Prompting Guide_57.gif" alt="AnisoRCWA Prompting Guide_57.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="PrimaryExamplesSection">
+ <span><img src="HTMLFiles/AnisoRCWA Prompting Guide_58.gif" alt="AnisoRCWA Prompting Guide_58.gif" width="67" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="SeeAlso">
+ <span class="InlineFormulaInline"><span><img src="HTMLFiles/AnisoRCWA Prompting Guide_59.gif" alt="AnisoRCWA Prompting Guide_59.gif" width="184" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/AnisoRCWA Prompting Guide_60.gif" alt="AnisoRCWA Prompting Guide_60.gif" width="129" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/AnisoRCWA Prompting Guide_61.gif" alt="AnisoRCWA Prompting Guide_61.gif" width="115" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> 
+</p>
+
+
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,1203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  Crystals Guide - Birefringence`
+ </title>
+ <link href="HTMLFiles/Crystals Guide.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<table class='AnchorBarGrid'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span class="PacletNameCellInline">BIREFRINGENCE` SYMBOL</span></td>
+  <td style='text-align: center;'><span class="AnchorBarInline"><span style='line-height: 1.4;'><span><img src="HTMLFiles/Crystals Guide_1.gif" alt="Crystals Guide_1.gif" width="71" height="29" style="vertical-align:middle" /></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='line-height: 1.4;'><span><img src="HTMLFiles/Crystals Guide_2.gif" alt="Crystals Guide_2.gif" width="45" height="29" style="vertical-align:middle" /></span></span></span></td>
+ </tr>
+</table>
+
+<p class="ObjectName">
+ Crystals Guide
+</p>
+
+
+
+<p class="Text">
+ This tutorial shows how to perform calculations of ray refraction and reflection at interfaces between homogeneous birefringent media.&nbsp;&nbsp;Both uniaxial and biaxial crystal materials can be modeled as a birefringent media.
+</p>
+
+
+
+<p class="NotesSection">
+ <span><span><img src="HTMLFiles/Crystals Guide_3.gif" alt="Crystals Guide_3.gif" width="157" height="36" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="Notes">
+ Polaris-M will automatically calculate ray splitting.&nbsp;&nbsp;Rays will split upon reflection and refraction inside a birefringent media.
+</p>
+
+
+
+<p class="Notes">
+ The Polarization Ray Tracing Matrix (PRT) will contain the polarizer properties to signal the polarization state in a given ray mode.&nbsp;&nbsp;
+</p>
+
+
+
+<p class="Notes">
+ To use a crystal material, a user must enter:<br />sys`material1`type&rarr;&quot;Crystal&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;or<br />sys`material2`type&rarr;&quot;Crystal&quot;<br />In the CreateSurface function
+</p>
+
+
+
+<p class="Notes">
+ All additional crystal inputs must use the material call out of the same numbered designation (either sys`material1 or sys`material2) as used in the type callout above.
+</p>
+
+
+
+<p class="Notes">
+ The specific callout used (sys`material1 or sys`material2) does not effect the order of the materials during a raytrace.
+</p>
+
+
+
+<p class="ExampleText">
+ Birefringent materials provide the prescription for describing uniaxial and biaxial materials in the optical system.<br /><br />Addtional Inputs:<br />*Note that all addtional inputs also apply to sys`material2`_<br /><br />sys`material1`crystal`name &rarr; &ldquo;Crystal_Calcite&rdquo; (Default)<br />&nbsp;&nbsp;&nbsp;&nbsp;A textual identifier of catalog name (i.e. &ldquo;Crystal_Calcite&rdquo;) for material on one side of an interface. All inputs must be strings in the form of &ldquo;Crystal_material&rdquo;.<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />sys`material1`crystal`orientation &rarr; {{0, 0, 1.0}} (Default)<br />&nbsp;&nbsp;&nbsp;&nbsp;If material is uniaxial, the optic axis is specified i.e {0,0,1}. For biaxial materials, the axis associated with high index of refraction is specified first, followed by the axis associated with the low index of refraction i.e. {{1,0,0},{0,1,0}}. Axes are specified in global coordinates.<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />sys`material1`crystal`orientGyro &rarr; {0,0,1} (Default)<br />&nbsp;&nbsp;&nbsp;&nbsp;If material is uniaxial, the gyrotropic optic axis is specified i.e {0,0,1}. For biaxial materials, the axis associated with high gyrotropic constant is specified first, followed by the axis associated with the low gyrotropic constant i.e. {{1,0,0},{0,1,0}}. Axes are specified in global coordinates.
+</p>
+
+
+
+<p class="PrimaryExamplesSection">
+ <a id="PrimaryExamplesSection"></a>
+ <span><img src="HTMLFiles/Crystals Guide_4.gif" alt="Crystals Guide_4.gif" width="72" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="ExampleSection">
+ Uniaxial Examples&nbsp;&nbsp;<span class="ExampleCountInline">(2)</span>
+</p>
+
+
+
+<p class="ExampleSubsection">
+ Single Slab of Constant Material&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_5.gif" alt="Crystals Guide_5.gif" width="390" height="399" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span>surfaceLabel</span></td>
+  <td style='text-align: center;'><span>shape</span></td>
+  <td style='text-align: center;'><span>v</span></td>
+  <td style='text-align: center;'><span>a</span></td>
+  <td style='text-align: center;'><span>material1</span></td>
+  <td style='text-align: center;'><span>material2</span></td>
+  <td style='text-align: center;'><span>aperture</span></td>
+  <td style='text-align: center;'><span>coating</span></td>
+  <td style='text-align: center;'><span>mode</span></td>
+  <td style='text-align: center;'><span>surfaceScatter</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface1</span></td>
+  <td style='text-align: center;'><span>Front of Crystal</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_6.gif" alt="Crystals Guide_6.gif" width="55" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_7.gif" alt="Crystals Guide_7.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_8.gif" alt="Crystals Guide_8.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_9.gif" alt="Crystals Guide_9.gif" width="293" height="63" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Function[{PolarisScatterInput`Private`x$,PolarisScatterInput`Private`y$,PolarisScatterInput`Private`z$},Norm[{PolarisScatterInput`Private`x$,PolarisScatterInput`Private`y$,PolarisScatterInput`Private`z$}-{0,0,0}]&le;1.]</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_10.gif" alt="Crystals Guide_10.gif" width="98" height="113" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_11.gif" alt="Crystals Guide_11.gif" width="69" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>{}</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface2</span></td>
+  <td style='text-align: center;'><span>Back of Crystal</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_12.gif" alt="Crystals Guide_12.gif" width="55" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_13.gif" alt="Crystals Guide_13.gif" width="34" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_14.gif" alt="Crystals Guide_14.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_15.gif" alt="Crystals Guide_15.gif" width="293" height="63" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Function[{PolarisScatterInput`Private`x$,PolarisScatterInput`Private`y$,PolarisScatterInput`Private`z$},Norm[{PolarisScatterInput`Private`x$,PolarisScatterInput`Private`y$,PolarisScatterInput`Private`z$}-{0,0,10}]&le;1.]</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_16.gif" alt="Crystals Guide_16.gif" width="98" height="113" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_17.gif" alt="Crystals Guide_17.gif" width="62" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>{}</span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_18.gif" alt="Crystals Guide_18.gif" width="1000" height="111" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_19.gif" alt="Crystals Guide_19.gif" width="46" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_20.gif" alt="Crystals Guide_20.gif" width="46" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_21.gif" alt="Crystals Guide_21.gif" width="240" height="72" style="vertical-align:middle;" usemap="#map_21" />
+<map name="map_21">
+<area shape="rect" coords="138,38,140,2" title="Planar Surface
+ID: 2 : Back of Crystal
+V: {0., 0., 10.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="-34,38,-32,2" title="Planar Surface
+ID: 1 : Front of Crystal
+V: {0., 0., 0.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="138,38,140,2" title="Planar Surface
+ID: 2 : Back of Crystal
+V: {0., 0., 10.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="-34,38,-32,2" title="Planar Surface
+ID: 1 : Front of Crystal
+V: {0., 0., 0.}
+A: {0., 0., 1.}" nohref="" />
+</map>
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_22.gif" alt="Crystals Guide_22.gif" width="443" height="14" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span>modeLabel</span></td>
+  <td style='text-align: center;'><span>n</span></td>
+  <td style='text-align: center;'><span>surfaceID</span></td>
+  <td style='text-align: center;'><span>AOI</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface0</span></td>
+  <td style='text-align: center;'><span>{}</span></td>
+  <td style='text-align: center;'><span>1.</span></td>
+  <td style='text-align: center;'><span>0</span></td>
+  <td style='text-align: center;'><span>0.</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface1</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_23.gif" alt="Crystals Guide_23.gif" width="41" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>1.2</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>0.</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface1</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_24.gif" alt="Crystals Guide_24.gif" width="48" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>1.5</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>0.</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface2</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_25.gif" alt="Crystals Guide_25.gif" width="62" height="27" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>1.2</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>0.</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface2</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_26.gif" alt="Crystals Guide_26.gif" width="62" height="28" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>1.5</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span>0.</span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_27.gif" alt="Crystals Guide_27.gif" width="535" height="14" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span>modeLabel</span></td>
+  <td style='text-align: center;'><span>n</span></td>
+  <td style='text-align: center;'><span>surfaceID</span></td>
+  <td style='text-align: center;'><span>k</span></td>
+  <td style='text-align: center;'><span>r</span></td>
+  <td style='text-align: center;'><span>AOI</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface0</span></td>
+  <td style='text-align: center;'><span>{}</span></td>
+  <td style='text-align: center;'><span>1.</span></td>
+  <td style='text-align: center;'><span>0</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_28.gif" alt="Crystals Guide_28.gif" width="91" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_29.gif" alt="Crystals Guide_29.gif" width="42" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>0.</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface1</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_30.gif" alt="Crystals Guide_30.gif" width="41" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>1.20014</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_31.gif" alt="Crystals Guide_31.gif" width="91" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_32.gif" alt="Crystals Guide_32.gif" width="63" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>0.079031</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface1</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_33.gif" alt="Crystals Guide_33.gif" width="48" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>1.50057</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_34.gif" alt="Crystals Guide_34.gif" width="91" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_35.gif" alt="Crystals Guide_35.gif" width="63" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>0.079031</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface2</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_36.gif" alt="Crystals Guide_36.gif" width="62" height="27" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>1.20014</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_37.gif" alt="Crystals Guide_37.gif" width="91" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_38.gif" alt="Crystals Guide_38.gif" width="84" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>0.0658303</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface2</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_39.gif" alt="Crystals Guide_39.gif" width="62" height="28" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>1.50057</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_40.gif" alt="Crystals Guide_40.gif" width="91" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_41.gif" alt="Crystals Guide_41.gif" width="84" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>0.0526368</span></td>
+ </tr>
+</table>
+
+<p class="ExampleSubsection">
+ Single Slab of Calcite&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Parameterize the crystal geometry
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_42.gif" alt="Crystals Guide_42.gif" width="694" height="111" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ Define the optical system using the crystal parameters
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_43.gif" alt="Crystals Guide_43.gif" width="390" height="623" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span>surfaceLabel</span></td>
+  <td style='text-align: center;'><span>shape</span></td>
+  <td style='text-align: center;'><span>v</span></td>
+  <td style='text-align: center;'><span>a</span></td>
+  <td style='text-align: center;'><span>material1</span></td>
+  <td style='text-align: center;'><span>material2</span></td>
+  <td style='text-align: center;'><span>aperture</span></td>
+  <td style='text-align: center;'><span>coating</span></td>
+  <td style='text-align: center;'><span>mode</span></td>
+  <td style='text-align: center;'><span>surfaceScatter</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface1</span></td>
+  <td style='text-align: center;'><span>Fronface of Crystal</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_44.gif" alt="Crystals Guide_44.gif" width="55" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_45.gif" alt="Crystals Guide_45.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_46.gif" alt="Crystals Guide_46.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_47.gif" alt="Crystals Guide_47.gif" width="125" height="62" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Norm[{#1,#2}]&lt;crystalFaceSize&amp;</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_48.gif" alt="Crystals Guide_48.gif" width="98" height="113" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_49.gif" alt="Crystals Guide_49.gif" width="69" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>{}</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface2</span></td>
+  <td style='text-align: center;'><span>Backface of Crystal</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_50.gif" alt="Crystals Guide_50.gif" width="55" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_51.gif" alt="Crystals Guide_51.gif" width="41" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_52.gif" alt="Crystals Guide_52.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_53.gif" alt="Crystals Guide_53.gif" width="125" height="62" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span>Norm[{#1,#2}]&lt;crystalFaceSize&amp;</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_54.gif" alt="Crystals Guide_54.gif" width="98" height="113" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_55.gif" alt="Crystals Guide_55.gif" width="69" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>{}</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface3</span></td>
+  <td style='text-align: center;'><span>Detector</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_56.gif" alt="Crystals Guide_56.gif" width="55" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_57.gif" alt="Crystals Guide_57.gif" width="41" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_58.gif" alt="Crystals Guide_58.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span>Norm[{#1,#2}]&lt;crystalFaceSize&amp;</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_59.gif" alt="Crystals Guide_59.gif" width="98" height="113" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Absorb</span></td>
+  <td style='text-align: center;'><span>{}</span></td>
+ </tr>
+</table>
+
+<p class="ExampleText">
+ With the system in place, the rays can be created.<br />Two input rays are created, the first ray is parallel to the extraordinary axis, the second ray propagation vector is deviated from the extraordinary axis
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_60.gif" alt="Crystals Guide_60.gif" width="767" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ Both rays can now be traced through the system.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_61.gif" alt="Crystals Guide_61.gif" width="496" height="127" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/Crystals Guide_62.gif" alt="Crystals Guide_62.gif" width="193" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/Crystals Guide_63.gif" alt="Crystals Guide_63.gif" width="193" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_64.gif" alt="Crystals Guide_64.gif" width="240" height="92" style="vertical-align:middle;" usemap="#map_64" />
+<map name="map_64">
+<area shape="rect" coords="148,53,150,3" title="Planar Surface
+ID: 3 : Detector
+V: {0., 0., 16.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="87,53,89,3" title="Planar Surface
+ID: 2 : Backface of Crystal
+V: {0., 0., 11.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="-35,53,-33,3" title="Planar Surface
+ID: 1 : Fronface of Crystal
+V: {0., 0., 1.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="148,53,150,3" title="Planar Surface
+ID: 3 : Detector
+V: {0., 0., 16.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="87,53,89,3" title="Planar Surface
+ID: 2 : Backface of Crystal
+V: {0., 0., 11.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="-35,53,-33,3" title="Planar Surface
+ID: 1 : Fronface of Crystal
+V: {0., 0., 1.}
+A: {0., 0., 1.}" nohref="" />
+</map>
+</p>
+
+<p class="ExampleText">
+ The ray data has now been generated. Users can view the raydata with PrintRay[]<br />The first ray is the ordianry mode and the second ray is the extraordinary ray. The rays are identified as orindinary (o), or extraordinary (e), in the modeLabel column. Since both rays are propagating along the extraordinary axis, the extrordinary ray is degenerate. 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_65.gif" alt="Crystals Guide_65.gif" width="549" height="14" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span>r</span></td>
+  <td style='text-align: center;'><span>k</span></td>
+  <td style='text-align: center;'><span>S</span></td>
+  <td style='text-align: center;'><span>OPLCumulative</span></td>
+  <td style='text-align: center;'><span>modeLabel</span></td>
+  <td style='text-align: center;'><span>PRTCumulative</span></td>
+  <td style='text-align: center;'><span>MMCumulative</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface3</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_66.gif" alt="Crystals Guide_66.gif" width="41" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_67.gif" alt="Crystals Guide_67.gif" width="34" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_68.gif" alt="Crystals Guide_68.gif" width="34" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>23.4368</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_69.gif" alt="Crystals Guide_69.gif" width="62" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_70.gif" alt="Crystals Guide_70.gif" width="169" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_71.gif" alt="Crystals Guide_71.gif" width="226" height="57" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface3</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_72.gif" alt="Crystals Guide_72.gif" width="41" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_73.gif" alt="Crystals Guide_73.gif" width="34" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_74.gif" alt="Crystals Guide_74.gif" width="34" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>23.4368</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_75.gif" alt="Crystals Guide_75.gif" width="62" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_76.gif" alt="Crystals Guide_76.gif" width="178" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_77.gif" alt="Crystals Guide_77.gif" width="334" height="60" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+<p class="ExampleText">
+ When the propagation vector is not parallel to the crystal axis, Polaris-M will automatically split rays into ordinary and extraordinary modes.&nbsp;&nbsp;This causes two rays to hit the detector in different locations (as seen in the r column) for every input ray.&nbsp;&nbsp;The difference in the optical path lengths for the two modes can be seen in the OPLCumlative column.&nbsp;&nbsp;In this case the extraordinary ray (first row), has a slightly higher transmission.&nbsp;&nbsp;This is because the <span><span><img src="HTMLFiles/Crystals Guide_78.gif" alt="Crystals Guide_78.gif" width="21" height="18" style="vertical-align:middle" /></span></span> component of the Mueller Matrix is slightly larger.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_79.gif" alt="Crystals Guide_79.gif" width="549" height="14" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span>r</span></td>
+  <td style='text-align: center;'><span>k</span></td>
+  <td style='text-align: center;'><span>S</span></td>
+  <td style='text-align: center;'><span>OPLCumulative</span></td>
+  <td style='text-align: center;'><span>modeLabel</span></td>
+  <td style='text-align: center;'><span>PRTCumulative</span></td>
+  <td style='text-align: center;'><span>MMCumulative</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface3</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_80.gif" alt="Crystals Guide_80.gif" width="84" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_81.gif" alt="Crystals Guide_81.gif" width="91" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_82.gif" alt="Crystals Guide_82.gif" width="91" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>23.473</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_83.gif" alt="Crystals Guide_83.gif" width="62" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_84.gif" alt="Crystals Guide_84.gif" width="270" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_85.gif" alt="Crystals Guide_85.gif" width="375" height="63" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface3</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_86.gif" alt="Crystals Guide_86.gif" width="84" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_87.gif" alt="Crystals Guide_87.gif" width="91" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_88.gif" alt="Crystals Guide_88.gif" width="91" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>23.4694</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_89.gif" alt="Crystals Guide_89.gif" width="62" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_90.gif" alt="Crystals Guide_90.gif" width="249" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_91.gif" alt="Crystals Guide_91.gif" width="367" height="63" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+<p class="ExampleText">
+ RetardanceSlabUniaxial can be used to calculate the retardance of a given ray path by combining the ordinary and extraordinary modes
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_92.gif" alt="Crystals Guide_92.gif" width="567" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_93.gif" alt="Crystals Guide_93.gif" width="250" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_94.gif" alt="Crystals Guide_94.gif" width="567" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_95.gif" alt="Crystals Guide_95.gif" width="285" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/Crystals Guide_96.gif" alt="Crystals Guide_96.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ TIR in a Uniaxial Crystal (non-sequential)&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ This example will use a non-sequential ray trace.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_97.gif" alt="Crystals Guide_97.gif" width="1021" height="767" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span>surfaceLabel</span></td>
+  <td style='text-align: center;'><span>v</span></td>
+  <td style='text-align: center;'><span>a</span></td>
+  <td style='text-align: center;'><span>aperture</span></td>
+  <td style='text-align: center;'><span>material1</span></td>
+  <td style='text-align: center;'><span>material2</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface1</span></td>
+  <td style='text-align: center;'><span>Crystal Entrance Face</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_98.gif" alt="Crystals Guide_98.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_99.gif" alt="Crystals Guide_99.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Abs[#1]&lt;4&amp;&amp;botHight&lt;#2&lt;4&amp;</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_100.gif" alt="Crystals Guide_100.gif" width="189" height="62" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface2</span></td>
+  <td style='text-align: center;'><span>Crystal Exit Face</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_101.gif" alt="Crystals Guide_101.gif" width="34" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_102.gif" alt="Crystals Guide_102.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Abs[#1]&lt;4&amp;&amp;botHight&lt;#2&lt;4&amp;</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_103.gif" alt="Crystals Guide_103.gif" width="189" height="62" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface3</span></td>
+  <td style='text-align: center;'><span>Crystal Bottom</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_104.gif" alt="Crystals Guide_104.gif" width="49" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_105.gif" alt="Crystals Guide_105.gif" width="35" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Abs[#1]&lt;4&amp;&amp;1&lt;#3&lt;10.&amp;</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_106.gif" alt="Crystals Guide_106.gif" width="189" height="62" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface4</span></td>
+  <td style='text-align: center;'><span>Detector</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_107.gif" alt="Crystals Guide_107.gif" width="34" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_108.gif" alt="Crystals Guide_108.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Norm[{#1,#2}]&lt;6.&amp;&amp;botHight&lt;#2&amp;</span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_109.gif" alt="Crystals Guide_109.gif" width="625" height="79" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ The ray splits into an ordinary and extraordianary mode.&nbsp;&nbsp;The ordinary mode travels straight through the crystal.&nbsp;&nbsp;The extraordinary ray deflects towards the bottom of the crystal and goes through TIR.&nbsp;&nbsp;The TIR causes an additional ray splitting into extraordinary-ordinary modes and extraordinary-extraordinary modes.&nbsp;&nbsp;Thus three rays are incident on the detector surface.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_110.gif" alt="Crystals Guide_110.gif" width="827" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_111.gif" alt="Crystals Guide_111.gif" width="403" height="214" style="vertical-align:middle;" usemap="#map_111" />
+<map name="map_111">
+<area shape="rect" coords="247,165,290,-2" title="Planar Surface
+ID: 4 : Detector
+V: {0., 0., 15.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="12,162,196,122" title="Planar Surface
+ID: 3 : Crystal Bottom
+V: {0., -0.5, 5.}
+A: {0., -1., 0.}" nohref="" />
+<area shape="rect" coords="167,159,196,43" title="Planar Surface
+ID: 2 : Crystal Exit Face
+V: {0., 0., 10.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="7,163,36,47" title="Planar Surface
+ID: 1 : Crystal Entrance Face
+V: {0., 0., 1.}
+A: {0., 0., 1.}" nohref="" />
+</map>
+</p>
+
+<p class="ExampleText">
+ When the ray segments incident upon the detector are examined, we see three unique ray paths.&nbsp;&nbsp;The ordinary ray has a PRT matrix that acts as a horizontal polarizer <span><span><img src="HTMLFiles/Crystals Guide_112.gif" alt="Crystals Guide_112.gif" width="130" height="53" style="vertical-align:middle" /></span></span>.&nbsp;&nbsp;The output modes are shown below:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_113.gif" alt="Crystals Guide_113.gif" width="465" height="14" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span>modeLabel</span></td>
+  <td style='text-align: center;'><span>r</span></td>
+  <td style='text-align: center;'><span>k</span></td>
+  <td style='text-align: center;'><span>OPLCumulative</span></td>
+  <td style='text-align: center;'><span>PRTCumulative</span></td>
+  <td style='text-align: center;'><span>MMCumulative</span></td>
+  <td style='text-align: center;'><span>AOI</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface4</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_114.gif" alt="Crystals Guide_114.gif" width="62" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_115.gif" alt="Crystals Guide_115.gif" width="41" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_116.gif" alt="Crystals Guide_116.gif" width="34" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>21.9981</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_117.gif" alt="Crystals Guide_117.gif" width="113" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_118.gif" alt="Crystals Guide_118.gif" width="184" height="57" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>0.</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface4</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_119.gif" alt="Crystals Guide_119.gif" width="62" height="57" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_120.gif" alt="Crystals Guide_120.gif" width="69" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_121.gif" alt="Crystals Guide_121.gif" width="76" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>21.504</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_122.gif" alt="Crystals Guide_122.gif" width="408" height="49" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_123.gif" alt="Crystals Guide_123.gif" width="192" height="57" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>0.355647</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface4</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_124.gif" alt="Crystals Guide_124.gif" width="62" height="57" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_125.gif" alt="Crystals Guide_125.gif" width="62" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_126.gif" alt="Crystals Guide_126.gif" width="76" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>23.2321</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_127.gif" alt="Crystals Guide_127.gif" width="120" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_128.gif" alt="Crystals Guide_128.gif" width="100" height="57" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>0.639611</span></td>
+ </tr>
+</table>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/Crystals Guide_129.gif" alt="Crystals Guide_129.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ Biaxial Examples&nbsp;&nbsp;<span class="ExampleCountInline">(2)</span>
+</p>
+
+
+
+<p class="ExampleSubsection">
+ Single Slab of KTP&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ The main difference between using uniaxial and biaxial crystals is the input for the parameter sys`material1`crystal`orientation.&nbsp;&nbsp;In the uniaxial case this input was a 1 by 3 array describing the extraordinary axis, or crystal axis.&nbsp;&nbsp;With biaxial crystal, the sys`material1`crystal`orientation input must be a 2 by 3 array.&nbsp;&nbsp;The array must contain the axis orientation of the high index direction, followed by the low index direction.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_130.gif" alt="Crystals Guide_130.gif" width="643" height="111" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ With the crystal parameterized, it can be made into an optical system.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_131.gif" alt="Crystals Guide_131.gif" width="390" height="623" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span>surfaceLabel</span></td>
+  <td style='text-align: center;'><span>shape</span></td>
+  <td style='text-align: center;'><span>v</span></td>
+  <td style='text-align: center;'><span>a</span></td>
+  <td style='text-align: center;'><span>material1</span></td>
+  <td style='text-align: center;'><span>material2</span></td>
+  <td style='text-align: center;'><span>aperture</span></td>
+  <td style='text-align: center;'><span>coating</span></td>
+  <td style='text-align: center;'><span>mode</span></td>
+  <td style='text-align: center;'><span>surfaceScatter</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface1</span></td>
+  <td style='text-align: center;'><span>Fronface of Crystal</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_132.gif" alt="Crystals Guide_132.gif" width="55" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_133.gif" alt="Crystals Guide_133.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_134.gif" alt="Crystals Guide_134.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_135.gif" alt="Crystals Guide_135.gif" width="363" height="61" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Norm[{#1,#2}]&lt;crystalFaceSize&amp;</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_136.gif" alt="Crystals Guide_136.gif" width="98" height="113" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_137.gif" alt="Crystals Guide_137.gif" width="69" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>{}</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface2</span></td>
+  <td style='text-align: center;'><span>Backface of Crystal</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_138.gif" alt="Crystals Guide_138.gif" width="55" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_139.gif" alt="Crystals Guide_139.gif" width="41" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_140.gif" alt="Crystals Guide_140.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_141.gif" alt="Crystals Guide_141.gif" width="363" height="61" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span>Norm[{#1,#2}]&lt;crystalFaceSize&amp;</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_142.gif" alt="Crystals Guide_142.gif" width="98" height="113" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_143.gif" alt="Crystals Guide_143.gif" width="69" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>{}</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface3</span></td>
+  <td style='text-align: center;'><span>Detector</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_144.gif" alt="Crystals Guide_144.gif" width="55" height="14" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_145.gif" alt="Crystals Guide_145.gif" width="41" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_146.gif" alt="Crystals Guide_146.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span>Norm[{#1,#2}]&lt;crystalFaceSize&amp;</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_147.gif" alt="Crystals Guide_147.gif" width="98" height="113" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Absorb</span></td>
+  <td style='text-align: center;'><span>{}</span></td>
+ </tr>
+</table>
+
+<p class="ExampleText">
+ With the optical system defined, rays can be defined and then traced
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_148.gif" alt="Crystals Guide_148.gif" width="954" height="79" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_149.gif" alt="Crystals Guide_149.gif" width="46" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_150.gif" alt="Crystals Guide_150.gif" width="582" height="178" style="vertical-align:middle;" usemap="#map_150" />
+<map name="map_150">
+<area shape="rect" coords="367,134,396,9" title="Planar Surface
+ID: 3 : Detector
+V: {0., 0., 16.}
+A: {0., 0., 1.}" nohref="" />
+</map>
+</p>
+
+<p class="ExampleText">
+ Now, when the ray data is analyzed, we see that there is clear ray splitting of the high mode and the low mode.&nbsp;&nbsp;Similarly, from the PRT and MM matrix data, we can see that the vertically polarized light (Y-Direction) couples into the high mode, and that horizontally polarized light couples into the low mode.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_151.gif" alt="Crystals Guide_151.gif" width="549" height="14" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span>r</span></td>
+  <td style='text-align: center;'><span>k</span></td>
+  <td style='text-align: center;'><span>S</span></td>
+  <td style='text-align: center;'><span>OPLCumulative</span></td>
+  <td style='text-align: center;'><span>modeLabel</span></td>
+  <td style='text-align: center;'><span>PRTCumulative</span></td>
+  <td style='text-align: center;'><span>MMCumulative</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface3</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_152.gif" alt="Crystals Guide_152.gif" width="41" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_153.gif" alt="Crystals Guide_153.gif" width="34" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_154.gif" alt="Crystals Guide_154.gif" width="34" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>24.478</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_155.gif" alt="Crystals Guide_155.gif" width="62" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_156.gif" alt="Crystals Guide_156.gif" width="120" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_157.gif" alt="Crystals Guide_157.gif" width="184" height="57" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface3</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_158.gif" alt="Crystals Guide_158.gif" width="84" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_159.gif" alt="Crystals Guide_159.gif" width="34" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_160.gif" alt="Crystals Guide_160.gif" width="34" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>24.9281</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_161.gif" alt="Crystals Guide_161.gif" width="62" height="43" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_162.gif" alt="Crystals Guide_162.gif" width="120" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_163.gif" alt="Crystals Guide_163.gif" width="200" height="57" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/Crystals Guide_164.gif" alt="Crystals Guide_164.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ TIR in a Biaxial Cube&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ We will start by parameterizing the crystal block
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_165.gif" alt="Crystals Guide_165.gif" width="477" height="191" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_166.gif" alt="Crystals Guide_166.gif" width="238" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ With the crystal parameterized, it is time to define the optical system. 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_167.gif" alt="Crystals Guide_167.gif" width="1017" height="1039" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span>surfaceLabel</span></td>
+  <td style='text-align: center;'><span>v</span></td>
+  <td style='text-align: center;'><span>a</span></td>
+  <td style='text-align: center;'><span>material1</span></td>
+  <td style='text-align: center;'><span>material2</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface1</span></td>
+  <td style='text-align: center;'><span>Entrance Face</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_168.gif" alt="Crystals Guide_168.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_169.gif" alt="Crystals Guide_169.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_170.gif" alt="Crystals Guide_170.gif" width="258" height="62" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface2</span></td>
+  <td style='text-align: center;'><span>Top Face</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_171.gif" alt="Crystals Guide_171.gif" width="34" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_172.gif" alt="Crystals Guide_172.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_173.gif" alt="Crystals Guide_173.gif" width="258" height="62" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface3</span></td>
+  <td style='text-align: center;'><span>Side Oposite Entrance</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_174.gif" alt="Crystals Guide_174.gif" width="41" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_175.gif" alt="Crystals Guide_175.gif" width="27" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_176.gif" alt="Crystals Guide_176.gif" width="258" height="62" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface4</span></td>
+  <td style='text-align: center;'><span>Bottom Face</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_177.gif" alt="Crystals Guide_177.gif" width="42" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_178.gif" alt="Crystals Guide_178.gif" width="35" height="42" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_179.gif" alt="Crystals Guide_179.gif" width="258" height="62" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+ </tr>
+</table>
+
+<p class="ExampleText">
+ Now that the optical sytem has been created, lets define the rays for the ray trace.<br />A table of 4 rays with increasing angle of incidence into the cube will be traced. 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_180.gif" alt="Crystals Guide_180.gif" width="544" height="143" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ Now, run the ray trace. 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_181.gif" alt="Crystals Guide_181.gif" width="855" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ And examine the ray paths inside of the block:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_182.gif" alt="Crystals Guide_182.gif" width="1359" height="95" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_183.gif" alt="Crystals Guide_183.gif" width="420" height="304" style="vertical-align:middle;" usemap="#map_183" />
+<map name="map_183">
+<area shape="rect" coords="20,265,238,247" title="Planar Surface
+ID: 4 : Bottom Face
+V: {0., -80., 60.}
+A: {0., -1., 0.}" nohref="" />
+<area shape="rect" coords="215,266,241,37" title="Planar Surface
+ID: 3 : Side Oposite Entrance
+V: {0., 0., 120.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="24,53,242,35" title="Planar Surface
+ID: 2 : Top Face
+V: {0., 50., 60.}
+A: {0., 1., 0.}" nohref="" />
+<area shape="rect" coords="20,264,46,35" title="Planar Surface
+ID: 1 : Entrance Face
+V: {0., 0., 0.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="20,265,238,247" title="Planar Surface
+ID: 4 : Bottom Face
+V: {0., -80., 60.}
+A: {0., -1., 0.}" nohref="" />
+<area shape="rect" coords="215,266,241,37" title="Planar Surface
+ID: 3 : Side Oposite Entrance
+V: {0., 0., 120.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="24,53,242,35" title="Planar Surface
+ID: 2 : Top Face
+V: {0., 50., 60.}
+A: {0., 1., 0.}" nohref="" />
+<area shape="rect" coords="20,264,46,35" title="Planar Surface
+ID: 1 : Entrance Face
+V: {0., 0., 0.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="20,265,238,247" title="Planar Surface
+ID: 4 : Bottom Face
+V: {0., -80., 60.}
+A: {0., -1., 0.}" nohref="" />
+<area shape="rect" coords="215,266,241,37" title="Planar Surface
+ID: 3 : Side Oposite Entrance
+V: {0., 0., 120.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="24,53,242,35" title="Planar Surface
+ID: 2 : Top Face
+V: {0., 50., 60.}
+A: {0., 1., 0.}" nohref="" />
+<area shape="rect" coords="20,264,46,35" title="Planar Surface
+ID: 1 : Entrance Face
+V: {0., 0., 0.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="20,265,238,247" title="Planar Surface
+ID: 4 : Bottom Face
+V: {0., -80., 60.}
+A: {0., -1., 0.}" nohref="" />
+<area shape="rect" coords="215,266,241,37" title="Planar Surface
+ID: 3 : Side Oposite Entrance
+V: {0., 0., 120.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="24,53,242,35" title="Planar Surface
+ID: 2 : Top Face
+V: {0., 50., 60.}
+A: {0., 1., 0.}" nohref="" />
+<area shape="rect" coords="20,264,46,35" title="Planar Surface
+ID: 1 : Entrance Face
+V: {0., 0., 0.}
+A: {0., 0., 1.}" nohref="" />
+</map>
+</p>
+
+<p class="ExampleSection">
+ <img src="HTMLFiles/Crystals Guide_184.gif" alt="Crystals Guide_184.gif" width="57" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ Converging beam in a biaxial crystal.
+</p>
+
+
+
+<p class="ExampleText">
+ First the crystal geometry will be defined
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_185.gif" alt="Crystals Guide_185.gif" width="684" height="751" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span>surfaceLabel</span></td>
+  <td style='text-align: center;'><span>material1</span></td>
+  <td style='text-align: center;'><span>material2</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface1</span></td>
+  <td style='text-align: center;'><span>Front Crystal Face</span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_186.gif" alt="Crystals Guide_186.gif" width="379" height="61" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface2</span></td>
+  <td style='text-align: center;'><span>Back Crystal Face</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/Crystals Guide_187.gif" alt="Crystals Guide_187.gif" width="379" height="61" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Surface3</span></td>
+  <td style='text-align: center;'><span>Collection Sphere</span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+  <td style='text-align: center;'><span>Air</span></td>
+ </tr>
+</table>
+
+<p class="ExampleText">
+ Now the converging ray fan will be defined. For more information on creating converging or diverging ray sets see <span class="InlineFormulaInline"><span><img src="HTMLFiles/Crystals Guide_188.gif" alt="Crystals Guide_188.gif" width="196" height="16" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_189.gif" alt="Crystals Guide_189.gif" width="672" height="47" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_190.gif" alt="Crystals Guide_190.gif" width="64" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ With the rays and system defined the ray trace can be preformed.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_191.gif" alt="Crystals Guide_191.gif" width="649" height="47" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_192.gif" alt="Crystals Guide_192.gif" width="60" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_193.gif" alt="Crystals Guide_193.gif" width="360" height="190" style="vertical-align:middle;" usemap="#map_193" />
+<map name="map_193">
+<area shape="rect" coords="259,146,262,-3" title="Planar Surface
+ID: 3 : Collection Sphere
+V: {0., 0., 32.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="94,146,96,-3" title="Planar Surface
+ID: 2 : Back Crystal Face
+V: {0., 0., 14.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="-7,146,-5,-3" title="Planar Surface
+ID: 1 : Front Crystal Face
+V: {0., 0., 3.}
+A: {0., 0., 1.}" nohref="" />
+</map>
+</p>
+
+<p class="ExampleText">
+ The ray data will first be split into the extraordinary set and the ordinary set.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_194.gif" alt="Crystals Guide_194.gif" width="537" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_195.gif" alt="Crystals Guide_195.gif" width="53" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_196.gif" alt="Crystals Guide_196.gif" width="858" height="47" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_197.gif" alt="Crystals Guide_197.gif" width="53" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_198.gif" alt="Crystals Guide_198.gif" width="879" height="47" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_199.gif" alt="Crystals Guide_199.gif" width="53" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Crystals Guide_200.gif" alt="Crystals Guide_200.gif" width="871" height="111" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Crystals Guide_201.gif" alt="Crystals Guide_201.gif" width="400" height="216" style="vertical-align:middle;" usemap="#map_201" />
+<map name="map_201">
+<area shape="rect" coords="229,166,274,14" title="Planar Surface
+ID: 3 : Collection Sphere
+V: {0., 0., 32.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="73,188,118,36" title="Planar Surface
+ID: 2 : Back Crystal Face
+V: {0., 0., 14.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="-22,201,23,49" title="Planar Surface
+ID: 1 : Front Crystal Face
+V: {0., 0., 3.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="229,166,274,14" title="Planar Surface
+ID: 3 : Collection Sphere
+V: {0., 0., 32.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="73,188,118,36" title="Planar Surface
+ID: 2 : Back Crystal Face
+V: {0., 0., 14.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="-22,201,23,49" title="Planar Surface
+ID: 1 : Front Crystal Face
+V: {0., 0., 3.}
+A: {0., 0., 1.}" nohref="" />
+<area shape="rect" coords="229,166,274,14" title="Planar Surface
+ID: 3 : Collection Sphere
+V: {0., 0., 32.}
+A: {0., 0., 1.}" nohref="" />
+</map>
+</p>
+
+<p class="SeeAlso">
+ <span class="InlineFormulaInline"><span><img src="HTMLFiles/Crystals Guide_202.gif" alt="Crystals Guide_202.gif" width="89" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> 
+</p>
+
+
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>

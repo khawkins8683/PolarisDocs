@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  TrueAnglePupil2 - BiaxialAll`
+ </title>
+ <link href="HTMLFiles/TrueAnglePupil2.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<table class='AnchorBarGrid'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span class="PacletNameCellInline">BIAXIALALL` SYMBOL</span></td>
+  <td style='text-align: center;'><span class="AnchorBarInline"><span style='line-height: 1.4;'><span><img src="HTMLFiles/TrueAnglePupil2_1.gif" alt="TrueAnglePupil2_1.gif" width="71" height="29" style="vertical-align:middle" /></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='line-height: 1.4;'><span><img src="HTMLFiles/TrueAnglePupil2_2.gif" alt="TrueAnglePupil2_2.gif" width="45" height="29" style="vertical-align:middle" /></span></span></span></td>
+ </tr>
+</table>
+
+<p class="ObjectName">
+ TrueAnglePupil2
+</p>
+
+
+
+<table class='Usage'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span><span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_3.gif" alt="TrueAnglePupil2_3.gif" width="141" height="14" style="vertical-align:middle" /></span></span>&#8232;TrueAnglePupil2[nx_,frac_,shifta_,shiftb_,DegMax_,shiftx_:0,shifty_:0]&nbsp;&nbsp;Generates three arrays of numbers corresponding to images of the microscope objective pupil.&nbsp;&nbsp;Output is a vector of arrays of the form {THETAARRAY,PHIARRAY,WINDOW}. <br /><br /> The value at each point in THETAARRAY corresponds to the incident angle on the sample from an ray originating at that point in the exit pupil<br /><br />The value at each point in PHIARRAY corresponds to the azimuthal angle on the sample from an ray originating at that point in the exit pupil<br /><br />The array window is a binary array defining the aperture of the exit pupil.<br /><br /><br />Inputs are defined as follows<br /><br />nx - Half the array size in pixels (For example, nx=49 generates an array size of 98 pixels)<br /><br />frac - The fraction of the array that contains the pupil (for example&nbsp;&nbsp;frac=0.80 will generate the three arrays corresponding to a pupil that fills 80% of the simulated image)<br /><br />shifta - Is the angle the central ray from the microscope objective makes on the sample along the direction of an azimutal angle of 0&deg; (ie. the x direction). This value is determined by the orientation of the sample with respect to the microscope objective optical axis.&nbsp;&nbsp;(This value is non-zero when the sample is tilted about the rotation axis of the polarimeter arm)<br /> <br />shiftb - Is the angle the central ray from the microscope objective makes on the sample along the direction of an azimutal angle of 90&deg; (ie. the y direction). This value is determined by the orientation of the sample with respect to the microscope objective optical axis. (This value is non-zero when the sample is tilted about and axis perpendicular the rotation axis of the polarimeter arm)<br /><br />DegMax - This is the ArcSin of the numerical aperture of the microscope objective.<br /><br />shiftx and shift y - shift the centroid of the pupil image in the array</span></td>
+ </tr>
+</table>
+
+<p class="NotesSection">
+ <span><span><img src="HTMLFiles/TrueAnglePupil2_4.gif" alt="TrueAnglePupil2_4.gif" width="157" height="36" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="Notes">
+ Note about the function goes here.
+</p>
+
+
+
+<p class="Notes">
+ Another Note about the function goes here.
+</p>
+
+
+
+<p class="PrimaryExamplesSection">
+ <a id="PrimaryExamplesSection"></a>
+ <span><img src="HTMLFiles/TrueAnglePupil2_5.gif" alt="TrueAnglePupil2_5.gif" width="72" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="ExampleSection">
+ Basic Examples&nbsp;&nbsp;<span class="ExampleCountInline">(#)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Use the ExampleText style to write cells like this one.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/TrueAnglePupil2_6.gif" alt="TrueAnglePupil2_6.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ <img src="HTMLFiles/TrueAnglePupil2_7.gif" alt="TrueAnglePupil2_7.gif" width="59" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ Use the ExampleText style to write cells like this one.
+</p>
+
+
+
+<p class="PrimaryExamplesSection">
+ <span><img src="HTMLFiles/TrueAnglePupil2_8.gif" alt="TrueAnglePupil2_8.gif" width="67" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="SeeAlso">
+ <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_9.gif" alt="TrueAnglePupil2_9.gif" width="79" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_10.gif" alt="TrueAnglePupil2_10.gif" width="96" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_11.gif" alt="TrueAnglePupil2_11.gif" width="104" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_12.gif" alt="TrueAnglePupil2_12.gif" width="46" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_13.gif" alt="TrueAnglePupil2_13.gif" width="59" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_14.gif" alt="TrueAnglePupil2_14.gif" width="39" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_15.gif" alt="TrueAnglePupil2_15.gif" width="58" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_16.gif" alt="TrueAnglePupil2_16.gif" width="107" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_17.gif" alt="TrueAnglePupil2_17.gif" width="102" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_18.gif" alt="TrueAnglePupil2_18.gif" width="179" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_19.gif" alt="TrueAnglePupil2_19.gif" width="84" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_20.gif" alt="TrueAnglePupil2_20.gif" width="37" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_21.gif" alt="TrueAnglePupil2_21.gif" width="61" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_22.gif" alt="TrueAnglePupil2_22.gif" width="95" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_23.gif" alt="TrueAnglePupil2_23.gif" width="86" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_24.gif" alt="TrueAnglePupil2_24.gif" width="119" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_25.gif" alt="TrueAnglePupil2_25.gif" width="94" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_26.gif" alt="TrueAnglePupil2_26.gif" width="84" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_27.gif" alt="TrueAnglePupil2_27.gif" width="33" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_28.gif" alt="TrueAnglePupil2_28.gif" width="72" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_29.gif" alt="TrueAnglePupil2_29.gif" width="83" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_30.gif" alt="TrueAnglePupil2_30.gif" width="137" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_31.gif" alt="TrueAnglePupil2_31.gif" width="118" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_32.gif" alt="TrueAnglePupil2_32.gif" width="138" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_33.gif" alt="TrueAnglePupil2_33.gif" width="33" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_34.gif" alt="TrueAnglePupil2_34.gif" width="51" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_35.gif" alt="TrueAnglePupil2_35.gif" width="25" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_36.gif" alt="TrueAnglePupil2_36.gif" width="166" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_37.gif" alt="TrueAnglePupil2_37.gif" width="137" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_38.gif" alt="TrueAnglePupil2_38.gif" width="137" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_39.gif" alt="TrueAnglePupil2_39.gif" width="118" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_40.gif" alt="TrueAnglePupil2_40.gif" width="138" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_41.gif" alt="TrueAnglePupil2_41.gif" width="101" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_42.gif" alt="TrueAnglePupil2_42.gif" width="34" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/TrueAnglePupil2_43.gif" alt="TrueAnglePupil2_43.gif" width="36" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> 
+</p>
+
+
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>
