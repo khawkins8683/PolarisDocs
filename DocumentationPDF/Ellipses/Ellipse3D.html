@@ -7,16 +7,529 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
  <title>
-  Untitled
+  Ellipse3D - Ellipses`
  </title>
  <link href="HTMLFiles/Ellipse3D.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 
-<p class="Output">
- <img src="HTMLFiles/Ellipse3D_1.gif" alt="Ellipse3D_1.gif" width="49" height="15" style="vertical-align:middle" />
+<table class='AnchorBarGrid'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span class="PacletNameCellInline">ELLIPSES` SYMBOL</span></td>
+  <td style='text-align: center;'><span class="AnchorBarInline"><span style='line-height: 1.4;'><span><img src="HTMLFiles/Ellipse3D_1.gif" alt="Ellipse3D_1.gif" width="71" height="29" style="vertical-align:middle" /></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='line-height: 1.4;'><span><img src="HTMLFiles/Ellipse3D_2.gif" alt="Ellipse3D_2.gif" width="45" height="29" style="vertical-align:middle" /></span></span></span></td>
+ </tr>
+</table>
+
+<p class="ObjectName">
+ Ellipse3D
 </p>
+
+
+
+<table class='Usage'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span><span class="InlineFormulaInline"><span><img src="HTMLFiles/Ellipse3D_3.gif" alt="Ellipse3D_3.gif" width="203" height="14" style="vertical-align:middle" /></span></span>&#8232; A function that returns graphics primitives forming an ellipse corresponding to the 3-dimensional Jones vector, {ex, ey, ez}, default is the origin. <br /><br /> Inputs:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ex,ey,ez} - the 3D Jones vector<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{x,y,z} - the location of the center of the ellipse in global coordinates<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;opts - optional parameters to change the ellipse appearance<br /><br /> Output:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a list of values for the ellipse position as well as any visual changes to the ellipse <br /> </span></td>
+ </tr>
+</table>
+
+<p class="NotesSection">
+ <span><span><img src="HTMLFiles/Ellipse3D_4.gif" alt="Ellipse3D_4.gif" width="157" height="36" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="Notes">
+ The apparent colors of the ellipse are affected by the lighting - set Lighting-&gt;Neutral in the Show statement to get the defined colors. 
+</p>
+
+
+
+<p class="Notes">
+ Use the Arrowheads graphics primitive to change the appearance of the arrowheads.&nbsp;&nbsp;&nbsp;
+</p>
+
+
+
+<p class="Notes">
+ Opts`&theta;Start and Opts`StartPhase, and Opts`&theta;End and Opts`EndPhase are interchangeable.
+</p>
+
+
+
+<p class="ExampleSection">
+ Options&nbsp;&nbsp;<span class="ExampleCountInline">(9)</span>
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/Opts/ref/Opts`Color.html "><p class="Link">
+ Opts`Color
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value: &quot;LinearRainbow&quot;<br />an option that allows the user to change the color of the ellipse
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/ref/PlotPoints.html "><p class="Link">
+ PlotPoints
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value: 50<br />an option that defines the number of points plotted
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/Opts/ref/Opts`StartPhase.html "><p class="Link">
+ Opts`&theta;Start
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value:&nbsp;&nbsp;0<br />an option that allows sets the start phase (in radians) for the ellipse.
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/Opts/ref/Opts`EndPhase.html "><p class="Link">
+ Opts`&theta;End 
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value:&nbsp;&nbsp;2&pi;<br />an option that allows sets the end phase (in radians) for the ellipse.
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/Opts/ref/Opts`RadiusFunction.html "><p class="Link">
+ Opts`RadiusFunction
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value:&nbsp;&nbsp;&nbsp;(Thickness[0.005]&amp;)]<br />an option that changes the thickness of the ellipse.
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/Opts/ref/Opts`OpacityFunction.html "><p class="Link">
+ Opts`OpacityFunction
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value:&nbsp;&nbsp;Opaque<br />an option that will change the opacity of the ellipse.
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/Opts/ref/Opts`ThickFunction.html "><p class="Link">
+ Opts`ThickFunction
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value:&nbsp;&nbsp;(Thickness[0.005]&amp;)<br />an option that changes the thickness of the ellipse.
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/Opts/ref/Opts`PreformanceGoal.html "><p class="Link">
+ Opts`PreformanceGoal
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value:&nbsp;&nbsp;Speed<br />an option that&nbsp;&nbsp;will change target performance attributes.
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/Opts/ref/Opts`Phase.html "><p class="Link">
+ Opts`Phase
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value:&nbsp;&nbsp;&quot;Decreasing&quot;<br />an option that&nbsp;&nbsp;will change phase convention of the ellipse.
+</p>
+
+
+
+<p class="PrimaryExamplesSection">
+ <a id="PrimaryExamplesSection"></a>
+ <span><img src="HTMLFiles/Ellipse3D_5.gif" alt="Ellipse3D_5.gif" width="72" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="ExampleSection">
+ <span><span><img src="HTMLFiles/Ellipse3D_6.gif" alt="Ellipse3D_6.gif" width="14" height="19" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/Ellipse3D_7.gif" alt="Ellipse3D_7.gif" width="1" height="19" style="vertical-align:middle" /></span></span>Basic Examples&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Ellipse3D will give a graphics primitive for a 3-D polarization ellipse:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Ellipse3D_8.gif" alt="Ellipse3D_8.gif" width="398" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Ellipse3D_9.gif" alt="Ellipse3D_9.gif" width="1389" height="20" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/Ellipse3D_10.gif" alt="Ellipse3D_10.gif" width="673" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ <span><span><img src="HTMLFiles/Ellipse3D_11.gif" alt="Ellipse3D_11.gif" width="14" height="19" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/Ellipse3D_12.gif" alt="Ellipse3D_12.gif" width="1" height="19" style="vertical-align:middle" /></span></span>Options&nbsp;&nbsp;<span class="ExampleCountInline">(9)</span>
+</p>
+
+
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/Ellipse3D_13.gif" alt="Ellipse3D_13.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/Ellipse3D_14.gif" alt="Ellipse3D_14.gif" width="1" height="18" style="vertical-align:middle" /></span></span>PlotPoints&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ PlotPoints can be used to change the number of steps:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Ellipse3D_15.gif" alt="Ellipse3D_15.gif" width="404" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Ellipse3D_16.gif" alt="Ellipse3D_16.gif" width="221" height="240" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ Increasing the number of points will create a smoother ellipse.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/Ellipse3D_17.gif" alt="Ellipse3D_17.gif" width="673" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/Ellipse3D_18.gif" alt="Ellipse3D_18.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/Ellipse3D_19.gif" alt="Ellipse3D_19.gif" width="1" height="18" style="vertical-align:middle" /></span></span>Opts`Color&nbsp;&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Opts`Color allows users to change the color of the ellipse:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Ellipse3D_20.gif" alt="Ellipse3D_20.gif" width="241" height="47" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Ellipse3D_21.gif" alt="Ellipse3D_21.gif" width="373" height="401" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/Ellipse3D_22.gif" alt="Ellipse3D_22.gif" width="673" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/Ellipse3D_23.gif" alt="Ellipse3D_23.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/Ellipse3D_24.gif" alt="Ellipse3D_24.gif" width="1" height="18" style="vertical-align:middle" /></span></span>Opts`RadiusFunction&nbsp;<span class="ExampleCountInline"> (2)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Opt`RadiusFunction can be used to change the radius thickness:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Ellipse3D_25.gif" alt="Ellipse3D_25.gif" width="591" height="47" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Ellipse3D_26.gif" alt="Ellipse3D_26.gif" width="217" height="240" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/Ellipse3D_27.gif" alt="Ellipse3D_27.gif" width="673" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/Ellipse3D_28.gif" alt="Ellipse3D_28.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/Ellipse3D_29.gif" alt="Ellipse3D_29.gif" width="1" height="18" style="vertical-align:middle" /></span></span>Opts`ThickFunction&nbsp;<span class="ExampleCountInline"> (2)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Opt`ThickFunction can be used to change the&nbsp;&nbsp;thickness:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Ellipse3D_30.gif" alt="Ellipse3D_30.gif" width="500" height="47" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Ellipse3D_31.gif" alt="Ellipse3D_31.gif" width="360" height="360" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/Ellipse3D_32.gif" alt="Ellipse3D_32.gif" width="673" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/Ellipse3D_33.gif" alt="Ellipse3D_33.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/Ellipse3D_34.gif" alt="Ellipse3D_34.gif" width="1" height="18" style="vertical-align:middle" /></span></span>Opts`OpacityFunction&nbsp;&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Opt`OpacityFunction can be used to change the opacity of the ellipse::
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Ellipse3D_35.gif" alt="Ellipse3D_35.gif" width="419" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Ellipse3D_36.gif" alt="Ellipse3D_36.gif" width="221" height="240" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/Ellipse3D_37.gif" alt="Ellipse3D_37.gif" width="673" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/Ellipse3D_38.gif" alt="Ellipse3D_38.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/Ellipse3D_39.gif" alt="Ellipse3D_39.gif" width="1" height="18" style="vertical-align:middle" /></span></span>Opts`StartPhase&nbsp;&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Opts`StartPhase changes the start position of the ellipse:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Ellipse3D_40.gif" alt="Ellipse3D_40.gif" width="422" height="79" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Ellipse3D_41.gif" alt="Ellipse3D_41.gif" width="240" height="240" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/Ellipse3D_42.gif" alt="Ellipse3D_42.gif" width="673" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/Ellipse3D_43.gif" alt="Ellipse3D_43.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/Ellipse3D_44.gif" alt="Ellipse3D_44.gif" width="1" height="18" style="vertical-align:middle" /></span></span>Opts`EndPhase&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Opts`EndPhase changes the end position of the ellipse:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Ellipse3D_45.gif" alt="Ellipse3D_45.gif" width="422" height="63" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Ellipse3D_46.gif" alt="Ellipse3D_46.gif" width="240" height="240" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/Ellipse3D_47.gif" alt="Ellipse3D_47.gif" width="673" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/Ellipse3D_48.gif" alt="Ellipse3D_48.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/Ellipse3D_49.gif" alt="Ellipse3D_49.gif" width="1" height="18" style="vertical-align:middle" /></span></span>Opts`Phase&nbsp;&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Opts`Phase changes the phase convention from &ldquo;Decreasing&rdquo; to &ldquo;Increasing&rdquo;:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Ellipse3D_50.gif" alt="Ellipse3D_50.gif" width="405" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Ellipse3D_51.gif" alt="Ellipse3D_51.gif" width="366" height="380" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/Ellipse3D_52.gif" alt="Ellipse3D_52.gif" width="673" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/Ellipse3D_53.gif" alt="Ellipse3D_53.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/Ellipse3D_54.gif" alt="Ellipse3D_54.gif" width="1" height="18" style="vertical-align:middle" /></span></span>PerformanceGoal&nbsp;&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ PerformanceGoal can be used to select Quality over Speed:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Ellipse3D_55.gif" alt="Ellipse3D_55.gif" width="419" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Ellipse3D_56.gif" alt="Ellipse3D_56.gif" width="217" height="240" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/Ellipse3D_57.gif" alt="Ellipse3D_57.gif" width="673" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ <span><span><img src="HTMLFiles/Ellipse3D_58.gif" alt="Ellipse3D_58.gif" width="14" height="19" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/Ellipse3D_59.gif" alt="Ellipse3D_59.gif" width="1" height="19" style="vertical-align:middle" /></span></span>Advanced Examples&nbsp;&nbsp;<span class="ExampleCountInline">(2)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Draw an ellipse on a sphere:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Ellipse3D_60.gif" alt="Ellipse3D_60.gif" width="315" height="126" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Ellipse3D_61.gif" alt="Ellipse3D_61.gif" width="318" height="45" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/Ellipse3D_62.gif" alt="Ellipse3D_62.gif" width="1324" height="543" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Ellipse3D_63.gif" alt="Ellipse3D_63.gif" width="360" height="420" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/Ellipse3D_64.gif" alt="Ellipse3D_64.gif" width="673" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ Draw an ellipse on different points of a grid:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/Ellipse3D_65.gif" alt="Ellipse3D_65.gif" width="1386" height="543" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/Ellipse3D_66.gif" alt="Ellipse3D_66.gif" width="144" height="150" style="vertical-align:middle" />
+</p>
+
+<p class="SeeAlsoSection">
+ <span><img src="HTMLFiles/Ellipse3D_67.gif" alt="Ellipse3D_67.gif" width="67" height="19" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="SeeAlso">
+ <span class="InlineFormulaInline"><span><img src="HTMLFiles/Ellipse3D_68.gif" alt="Ellipse3D_68.gif" width="181" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/Ellipse3D_69.gif" alt="Ellipse3D_69.gif" width="57" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/Ellipse3D_70.gif" alt="Ellipse3D_70.gif" width="40" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/Ellipse3D_71.gif" alt="Ellipse3D_71.gif" width="151" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/Ellipse3D_72.gif" alt="Ellipse3D_72.gif" width="101" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/Ellipse3D_73.gif" alt="Ellipse3D_73.gif" width="114" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> 
+</p>
+
+
+
+<p class="TutorialsSection">
+ <span><img src="HTMLFiles/Ellipse3D_74.gif" alt="Ellipse3D_74.gif" width="81" height="19" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="Tutorials">
+ <span><a href="http://reference.wolfram.com/mathematica/Ellipses/ref/Building Polarization Graphics.html "><span class="LinkInline">Building Polarization Graphics</span></a></span>
+</p>
+
+
+
+<p class="MoreAboutSection">
+ <span><img src="HTMLFiles/Ellipse3D_75.gif" alt="Ellipse3D_75.gif" width="85" height="19" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="MoreAbout">
+ <span><a href="http://reference.wolfram.com/mathematica/Ellipses/ref/Ellipses Prompting Guide.html "><span class="LinkInline">Ellipses Prompting Guide</span></a></span>
+</p>
+
+
 
 
 

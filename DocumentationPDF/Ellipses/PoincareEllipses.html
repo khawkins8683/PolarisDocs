@@ -7,16 +7,614 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
  <title>
-  Untitled
+  PoincareEllipses - Ellipses`
  </title>
  <link href="HTMLFiles/PoincareEllipses.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 
-<p class="Output">
- <img src="HTMLFiles/PoincareEllipses_1.gif" alt="PoincareEllipses_1.gif" width="49" height="15" style="vertical-align:middle" />
+<table class='AnchorBarGrid'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span class="PacletNameCellInline">ELLIPSES` SYMBOL</span></td>
+  <td style='text-align: center;'><span class="AnchorBarInline"><span style='line-height: 1.4;'><span><img src="HTMLFiles/PoincareEllipses_1.gif" alt="PoincareEllipses_1.gif" width="71" height="29" style="vertical-align:middle" /></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='line-height: 1.4;'><span><img src="HTMLFiles/PoincareEllipses_2.gif" alt="PoincareEllipses_2.gif" width="45" height="29" style="vertical-align:middle" /></span></span></span></td>
+ </tr>
+</table>
+
+<p class="ObjectName">
+ PoincareEllipses
 </p>
+
+
+
+<table class='Usage'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span><span class="InlineFormulaInline"><span><img src="HTMLFiles/PoincareEllipses_3.gif" alt="PoincareEllipses_3.gif" width="330" height="14" style="vertical-align:middle" /></span></span>&#8232;A function that produces a table of graphics primitives to draw the ellipses for a Poincare sphere having latitude lines and longitude lines. <br /><br />Inputs:<br />&nbsp;&nbsp;&nbsp;&nbsp;LatitudeLines - the number of lines along the horizontal <br />&nbsp;&nbsp;&nbsp;&nbsp;LongitudeLines - the number of lines along the vertical <br />&nbsp;&nbsp;&nbsp;&nbsp;mm - an optional array parameter with 4-element vectors that calculate the positions of the ellipses<br />&nbsp;&nbsp;&nbsp;&nbsp;opts - optional parameters to change the appearance of the Poincare <br /><br />Output:<br />&nbsp;&nbsp;&nbsp;&nbsp;an array of values for the ellipses positions as well as any visual changes</span></td>
+ </tr>
+</table>
+
+<p class="NotesSection">
+ <span><span><img src="HTMLFiles/PoincareEllipses_4.gif" alt="PoincareEllipses_4.gif" width="157" height="36" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="Notes">
+ The default latitude and longitude lines are 8 lines.
+</p>
+
+
+
+<p class="Notes">
+ If mm is provided, ellipse positions are recalculated to follow the depolarization surface.
+</p>
+
+
+
+<p class="Notes">
+ Ellipse orientation is not recalculated, so ellipses will not lie in the plane of the surface.
+</p>
+
+
+
+<p class="Notes">
+ The size of the ellipses are automatically scaled to fit within the available space as the number of squares and DOP is varied. 
+</p>
+
+
+
+<p class="Notes">
+ Opts`&theta;Start and Opts`StartPhase, and Opts`&theta;End and Opts`EndPhase are interchangeable.
+</p>
+
+
+
+<p class="ExampleSection">
+ Options&nbsp;&nbsp;<span class="ExampleCountInline">(10)</span>
+</p>
+
+
+
+<p class="Notes">
+ All options used for Ellipse3D can be used with PoincareEllipse
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/Opts/ref/Opts`Color.html "><p class="Link">
+ Opts`Color
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value: &quot;LinearRainbow&quot;<br />an option that allows the user to change the color of the ellipse
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/Opts/ref/Opts`Points.html "><p class="Link">
+ Opts`Points
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value: 50<br />an option that defines the number of points plotted
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/Opts/ref/Opts`StartPhase.html "><p class="Link">
+ Opts`&theta;Start
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value:&nbsp;&nbsp;0<br />an option that allows sets the start phase (in radians) for the ellipse.
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/Opts/ref/Opts`EndPhase.html "><p class="Link">
+ Opts`&theta;End 
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value:&nbsp;&nbsp;2&pi;<br />an option that allows sets the end phase (in radians) for the ellipse.
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/Opts/ref/Opts`RadiusFunction.html "><p class="Link">
+ Opts`RadiusFunction
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value:&nbsp;&nbsp;&nbsp;(Thickness[0.005]&amp;)]<br />an option that changes the thickness of the ellipse.
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/Opts/ref/Opts`OpacityFunction.html "><p class="Link">
+ Opts`OpacityFunction
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value:&nbsp;&nbsp;Opaque<br />an option that will change the opacity of the ellipse.
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/Opts/ref/Opts`PreformanceGoal.html "><p class="Link">
+ Opts`PreformanceGoal
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value:&nbsp;&nbsp;Speed<br />an option that will change target performance attributes.
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/Opts/ref/Opts`Phase.html "><p class="Link">
+ Opts`Phase
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value:&nbsp;&nbsp;&quot;Decreasing&quot;<br />an option that will change phase convention of the ellipse.
+</p>
+
+
+
+<p class="Notes">
+ <a href="http://reference.wolfram.com/mathematica/Opts/ref/Opts`ScaleEllipse.html "><p class="Link">
+ Opts`ScaleEllipse
+</p>
+
+</a>
+</p>
+
+<p class="ExampleText">
+ Default Value: 1<br />an option that can be used to change the relative sizes of the ellipses
+</p>
+
+
+
+<p class="PrimaryExamplesSection">
+ <a id="PrimaryExamplesSection"></a>
+ <span><img src="HTMLFiles/PoincareEllipses_5.gif" alt="PoincareEllipses_5.gif" width="72" height="20" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="ExampleSection">
+ <span><span><img src="HTMLFiles/PoincareEllipses_6.gif" alt="PoincareEllipses_6.gif" width="14" height="19" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/PoincareEllipses_7.gif" alt="PoincareEllipses_7.gif" width="1" height="19" style="vertical-align:middle" /></span></span>Basic Examples&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Use PoincareEllipses to build multiple Ellipse3D graphics primitives, located on the Poincare sphere:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/PoincareEllipses_8.gif" alt="PoincareEllipses_8.gif" width="215" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/PoincareEllipses_9.gif" alt="PoincareEllipses_9.gif" width="438" height="75" style="vertical-align:middle;" usemap="#map_9" />
+<map name="map_9">
+<area shape="rect" coords="14,66,79,54" title="Dynamic[FEPrivate`FrontEndResource[FEStrings, sizeExplanation]]" nohref="" />
+</map>
+</p>
+
+<p class="ExampleText">
+ Graph a visual representation of the Poincare sphere:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/PoincareEllipses_10.gif" alt="PoincareEllipses_10.gif" width="133" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/PoincareEllipses_11.gif" alt="PoincareEllipses_11.gif" width="218" height="240" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/PoincareEllipses_12.gif" alt="PoincareEllipses_12.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ <span><span><img src="HTMLFiles/PoincareEllipses_13.gif" alt="PoincareEllipses_13.gif" width="14" height="19" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/PoincareEllipses_14.gif" alt="PoincareEllipses_14.gif" width="1" height="19" style="vertical-align:middle" /></span></span>Options&nbsp;&nbsp;<span class="ExampleCountInline">(10)</span>
+</p>
+
+
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/PoincareEllipses_15.gif" alt="PoincareEllipses_15.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/PoincareEllipses_16.gif" alt="PoincareEllipses_16.gif" width="1" height="18" style="vertical-align:middle" /></span></span>PlotPoints&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ PlotPoints can be used to change the number of steps:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/PoincareEllipses_17.gif" alt="PoincareEllipses_17.gif" width="311" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/PoincareEllipses_18.gif" alt="PoincareEllipses_18.gif" width="385" height="374" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ Increasing the number of points will create a smoother ellipse.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/PoincareEllipses_19.gif" alt="PoincareEllipses_19.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/PoincareEllipses_20.gif" alt="PoincareEllipses_20.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/PoincareEllipses_21.gif" alt="PoincareEllipses_21.gif" width="1" height="18" style="vertical-align:middle" /></span></span>Opts`Color&nbsp;&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Opts`Color allows users to change the color of the ellipse:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/PoincareEllipses_22.gif" alt="PoincareEllipses_22.gif" width="436" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/PoincareEllipses_23.gif" alt="PoincareEllipses_23.gif" width="335" height="384" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/PoincareEllipses_24.gif" alt="PoincareEllipses_24.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/PoincareEllipses_25.gif" alt="PoincareEllipses_25.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/PoincareEllipses_26.gif" alt="PoincareEllipses_26.gif" width="1" height="18" style="vertical-align:middle" /></span></span>Opts`RadiusFunction&nbsp;<span class="ExampleCountInline"> (2)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Opt`RadiusFunction can be used to change the radius thickness:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/PoincareEllipses_27.gif" alt="PoincareEllipses_27.gif" width="473" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/PoincareEllipses_28.gif" alt="PoincareEllipses_28.gif" width="329" height="432" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/PoincareEllipses_29.gif" alt="PoincareEllipses_29.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/PoincareEllipses_30.gif" alt="PoincareEllipses_30.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/PoincareEllipses_31.gif" alt="PoincareEllipses_31.gif" width="1" height="18" style="vertical-align:middle" /></span></span>Opts`ThickFunction&nbsp;<span class="ExampleCountInline"> (2)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Opt`ThickFunction can be used to change the&nbsp;&nbsp;thickness:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/PoincareEllipses_32.gif" alt="PoincareEllipses_32.gif" width="414" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/PoincareEllipses_33.gif" alt="PoincareEllipses_33.gif" width="339" height="341" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/PoincareEllipses_34.gif" alt="PoincareEllipses_34.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/PoincareEllipses_35.gif" alt="PoincareEllipses_35.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/PoincareEllipses_36.gif" alt="PoincareEllipses_36.gif" width="1" height="18" style="vertical-align:middle" /></span></span>Opts`OpacityFunction&nbsp;&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Opt`OpacityFunction can be used to change the opacity of the ellipse::
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/PoincareEllipses_37.gif" alt="PoincareEllipses_37.gif" width="451" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/PoincareEllipses_38.gif" alt="PoincareEllipses_38.gif" width="323" height="344" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/PoincareEllipses_39.gif" alt="PoincareEllipses_39.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/PoincareEllipses_40.gif" alt="PoincareEllipses_40.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/PoincareEllipses_41.gif" alt="PoincareEllipses_41.gif" width="1" height="18" style="vertical-align:middle" /></span></span>Opts`StartPhase&nbsp;&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Opts`StartPhase changes the start position of the ellipse:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/PoincareEllipses_42.gif" alt="PoincareEllipses_42.gif" width="366" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/PoincareEllipses_43.gif" alt="PoincareEllipses_43.gif" width="386" height="385" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/PoincareEllipses_44.gif" alt="PoincareEllipses_44.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/PoincareEllipses_45.gif" alt="PoincareEllipses_45.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/PoincareEllipses_46.gif" alt="PoincareEllipses_46.gif" width="1" height="18" style="vertical-align:middle" /></span></span>Opts`EndPhase&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Opts`EndPhase changes the end position of the ellipse:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/PoincareEllipses_47.gif" alt="PoincareEllipses_47.gif" width="362" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/PoincareEllipses_48.gif" alt="PoincareEllipses_48.gif" width="338" height="417" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/PoincareEllipses_49.gif" alt="PoincareEllipses_49.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/PoincareEllipses_50.gif" alt="PoincareEllipses_50.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/PoincareEllipses_51.gif" alt="PoincareEllipses_51.gif" width="1" height="18" style="vertical-align:middle" /></span></span>Opts`Phase&nbsp;&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Opts`Phase changes the phase convention from &ldquo;Decreasing&rdquo; to &ldquo;Increasing&rdquo;:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/PoincareEllipses_52.gif" alt="PoincareEllipses_52.gif" width="417" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/PoincareEllipses_53.gif" alt="PoincareEllipses_53.gif" width="342" height="433" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/PoincareEllipses_54.gif" alt="PoincareEllipses_54.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/PoincareEllipses_55.gif" alt="PoincareEllipses_55.gif" width="14" height="18" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/PoincareEllipses_56.gif" alt="PoincareEllipses_56.gif" width="1" height="18" style="vertical-align:middle" /></span></span>PerformanceGoal&nbsp;&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ PerformanceGoal can be used to select Quality over Speed:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/PoincareEllipses_57.gif" alt="PoincareEllipses_57.gif" width="431" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/PoincareEllipses_58.gif" alt="PoincareEllipses_58.gif" width="290" height="394" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/PoincareEllipses_59.gif" alt="PoincareEllipses_59.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSubsection">
+ <span><span><img src="HTMLFiles/PoincareEllipses_60.gif" alt="PoincareEllipses_60.gif" width="14" height="18" style="vertical-align:middle" /></span></span>Opts`ScaleEllipse&nbsp;&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Opts`ScaleEllipse allows users to scale the ellipses:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/PoincareEllipses_61.gif" alt="PoincareEllipses_61.gif" width="367" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/PoincareEllipses_62.gif" alt="PoincareEllipses_62.gif" width="295" height="298" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/PoincareEllipses_63.gif" alt="PoincareEllipses_63.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ <span><span><img src="HTMLFiles/PoincareEllipses_64.gif" alt="PoincareEllipses_64.gif" width="14" height="19" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/PoincareEllipses_65.gif" alt="PoincareEllipses_65.gif" width="1" height="19" style="vertical-align:middle" /></span></span>Scope&nbsp;&nbsp;<span class="ExampleCountInline">(2)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Use Poincare Ellipses to plot base polarization states on the Poincare Sphere:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/PoincareEllipses_66.gif" alt="PoincareEllipses_66.gif" width="422" height="159" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/PoincareEllipses_67.gif" alt="PoincareEllipses_67.gif" width="360" height="360" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ Note that the ellipses start tracing at pi/2 radians.
+</p>
+
+
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/PoincareEllipses_68.gif" alt="PoincareEllipses_68.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleText">
+ Plot more Ellipses on Poincare Sphere:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/PoincareEllipses_69.gif" alt="PoincareEllipses_69.gif" width="422" height="95" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/PoincareEllipses_70.gif" alt="PoincareEllipses_70.gif" width="360" height="360" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/PoincareEllipses_71.gif" alt="PoincareEllipses_71.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleSection">
+ <span><span><img src="HTMLFiles/PoincareEllipses_72.gif" alt="PoincareEllipses_72.gif" width="14" height="19" style="vertical-align:middle" /></span></span><span><span><img src="HTMLFiles/PoincareEllipses_73.gif" alt="PoincareEllipses_73.gif" width="1" height="19" style="vertical-align:middle" /></span></span>Advanced Examples&nbsp;&nbsp;<span class="ExampleCountInline">(1)</span>
+</p>
+
+
+
+<p class="ExampleText">
+ Plot more Ellipses on visible Poincare Sphere:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/PoincareEllipses_74.gif" alt="PoincareEllipses_74.gif" width="919" height="303" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/PoincareEllipses_75.gif" alt="PoincareEllipses_75.gif" width="360" height="360" style="vertical-align:middle" />
+</p>
+
+<p class="ExampleDelimiter">
+ <img src="HTMLFiles/PoincareEllipses_76.gif" alt="PoincareEllipses_76.gif" width="685" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="SeeAlsoSection">
+ <span><img src="HTMLFiles/PoincareEllipses_77.gif" alt="PoincareEllipses_77.gif" width="67" height="19" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="SeeAlso">
+ <span class="InlineFormulaInline"><span><img src="HTMLFiles/PoincareEllipses_78.gif" alt="PoincareEllipses_78.gif" width="181" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/PoincareEllipses_79.gif" alt="PoincareEllipses_79.gif" width="57" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/PoincareEllipses_80.gif" alt="PoincareEllipses_80.gif" width="40" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/PoincareEllipses_81.gif" alt="PoincareEllipses_81.gif" width="151" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/PoincareEllipses_82.gif" alt="PoincareEllipses_82.gif" width="101" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> <span class="InlineFormulaInline"><span><img src="HTMLFiles/PoincareEllipses_83.gif" alt="PoincareEllipses_83.gif" width="114" height="16" style="vertical-align:middle" /></span></span>&nbsp;<span class="InlineSeparatorInline"> &#8226; </span> 
+</p>
+
+
+
+<p class="TutorialsSection">
+ <span><img src="HTMLFiles/PoincareEllipses_84.gif" alt="PoincareEllipses_84.gif" width="81" height="19" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="Tutorials">
+ <span><a href="http://reference.wolfram.com/mathematica/Ellipses/ref/Building Polarization Graphics.html "><span class="LinkInline">Building Polarization Graphics</span></a></span>
+</p>
+
+
+
+<p class="MoreAboutSection">
+ <span><img src="HTMLFiles/PoincareEllipses_85.gif" alt="PoincareEllipses_85.gif" width="85" height="19" style="vertical-align:middle" /></span>
+</p>
+
+
+
+<p class="MoreAbout">
+ <span><a href="http://reference.wolfram.com/mathematica/Ellipses/ref/Ellipses Prompting Guide.html "><span class="LinkInline">Ellipses Prompting Guide</span></a></span>
+</p>
+
+
 
 
 
